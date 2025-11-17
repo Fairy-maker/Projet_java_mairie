@@ -1,18 +1,21 @@
 package equipe;
 
 import java.util.*;
-
+ 
 public class Expert extends Personne{
-	public Expert (String nom, String prenom, int age) {
+	private List <Secteur> secteur;
+	
+	public Expert (String nom, String prenom, int age, List <Secteur> secteur) {
 		super(nom, prenom, age);
+		this.secteur = secteur;
 	}
-	public class Experts extends LinkedList<Personne>{
-		public void addexpert (String nom, String prenom, int age) {
-			this.add(new Personne(nom, prenom, age));
 
-		}
-	}
-	public static void proposer_projet () {
-		
+	public Projet proposer_projet () {
+		Secteur secteurchoisi = secteur;
+		String titre = titre;
+		String description = description; 
+		int benefice = benefice; 
+		Cout cout = new Cout();
+	return new Projet (titre, description,benefice,secteurchoisi, cout);
 	}
 }
