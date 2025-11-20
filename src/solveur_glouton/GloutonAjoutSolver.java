@@ -38,7 +38,8 @@ interface SacADos {
 
 public class GloutonAjoutSolver {
 	
-	public static List<ObjetDansSacADos> resolutionParMethodeGloutonne(SacADos sacADos) {
+	public static List<ObjetDansSacADos> resolutionParMethodeGloutonne(SacADos sacADos) throws Exception {
+		
 		List<ObjetDansSacADos> result = List.of();
 		
 		// On trie les objets du sac a dos
@@ -46,12 +47,21 @@ public class GloutonAjoutSolver {
 		SortByInterest comparatorByInterest = new SortByInterest();
 		tousLesObjets.sort(comparatorByInterest);
 		
+		int nbrBudgets = sacADos.getBudgets().length;
+		int[] conso = new int[nbrBudgets];
+		Arrays.fill(conso, 0);
 		
-		
+		for (ObjetDansSacADos objet : tousLesObjets) {
+			int[] newConso = Utils.addCoordinates(objet.getCouts(), conso);
+			if (Utils.allSmaller(newConso, sacADos.getBudgets())) {
+				conso = newConso;
+				result.add(objet);
+			}
+		}
 		
 		return result;
+		
 	}
-	
 	
 }
 
