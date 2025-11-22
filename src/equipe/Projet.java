@@ -1,18 +1,24 @@
 package equipe;
 
+
 public class Projet {
 	private String titre;
 	private String description;
-	private float benefice;
+	private double benefice;
+	private double coutTotal;
+
+	public void setBenefice(double benefice) {
+		this.benefice = benefice;
+	}
+
 	private Secteur secteur;
 	private Cout cout;
 	
-	public Projet (String titre, String description, float benefice, Secteur secteur, Cout cout) {
+	public Projet (String titre, String description, Secteur secteur) {
 		this.titre = titre;
 		this.description = description;
-		this.benefice = benefice;
 		this.secteur = secteur;
-		this.cout = cout;
+		this.cout = new Cout(0, 0, 0);
 	}
 
 	public String getTitre() {
@@ -31,13 +37,6 @@ public class Projet {
 		this.description = description;
 	}
 
-	public float getBenefice() {
-		return benefice;
-	}
-
-	public void setBenefice(float benefice) {
-		this.benefice = benefice;
-	}
 
 	public Secteur getSecteur() {
 		return secteur;
@@ -54,6 +53,19 @@ public class Projet {
 	public void setCout(Cout cout) {
 		this.cout = cout;
 	}
+	
+	public double getCoutTotal() {
+	    return cout.getCoutEco() + cout.getCoutSocio() + cout.getCoutEnv();
+	}
+	
 
+
+	@Override
+	public String toString() {
+	    return  "Projet : " + titre + "\nDescription : " + description + 
+	    		"\nSecteur : " + secteur + 
+	    		"\n  Coûts donnés par nos évaluateurs : " + "\n    -Coût économique : " + cout.getCoutEco() + " € " + "\n    -Coût social : " + cout.getCoutSocio() + " € " + "\n    -Coût environnemental : " + cout.getCoutEnv() + " € " + 
+	    		"\nCoût total :  " + getCoutTotal()+ "\n" ;
+	}
 
 }
