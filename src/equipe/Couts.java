@@ -1,11 +1,18 @@
 package equipe;
 
-public class Cout {
+public class Couts {
 	private int coutEco;
 	private int coutSocio;
 	private int coutEnv;
+	
+	// Initialiseur à utiliser quand les couts ne sont pas encore connus
+	Couts() {
+		this.coutEco = -1;
+		this.coutSocio = -1;
+		this.coutEnv = -1;
+	}
 
-	Cout(int coutEco, int coutSocio, int coutEnv){
+	Couts(int coutEco, int coutSocio, int coutEnv) {
 		this.coutEco = coutEco;
 		this.coutSocio = coutSocio;
 		this.coutEnv = coutEnv;
@@ -33,5 +40,12 @@ public class Cout {
 
 	public void setCoutEnv(int coutEnv) {
 		this.coutEnv = coutEnv;
+	}
+	
+	public int getCoutTotal() throws Error {
+		if (this.coutEco == -1 || this.coutEnv == -1 || this.coutSocio == -1) {
+			throw new Error("Un des couts n'est pas encore évalué");
+		}
+		return this.coutEco + this.coutSocio + this.coutEnv;
 	}
 }

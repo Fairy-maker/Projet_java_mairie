@@ -2,10 +2,9 @@ package equipe;
 
 public enum Secteur {
 	SPORT, 
-	SANTÉ, 
-	ÉDUCATION, 
+	SANTE, 
+	EDUCATION, 
 	CULTURE, 
-	ATTRACTIVITÉ_ÉCONOMIQUE, 
-	ÉCOLOGIE;
-
+	ATTRACTIVITE_ECONOMIQUE, 
+	ECOLOGIE,
 }

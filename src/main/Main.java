@@ -8,7 +8,7 @@ import equipe.Evaluateur;
 import equipe.Expert;
 import equipe.Secteur;
 import equipe.TypeEvaluationCout;
-import equipe.Equipe_municipale;
+import equipe.EquipeMunicipale;
 import equipe.Projet;
 
 public class Main {
@@ -34,17 +34,17 @@ public class Main {
 		expert.add(expertecologie);
 		expert.add(expertattractivitéeco);
 		
-		Equipe_municipale equipe_municipale = new Equipe_municipale(elu, evaluateureco, evaluateursocio, evaluateurenv, expert);
+		EquipeMunicipale equipe_municipale = new EquipeMunicipale(elu, evaluateureco, evaluateursocio, evaluateurenv, expert);
 		
 		
 		//Partie proposé par l'IA :
 		System.out.println("-------- Simulation des Projets --------\n");
 		for (Expert e : expert) {
-			equipe_municipale.simuler_projet(e);
+			equipe_municipale.creerEtAjouterNouveauProjet(e);
 		}
 		
 		System.out.println("\n-------- Voici les projets retenus : -------- \n");
-		for (Projet p : equipe_municipale.Liste_projet) {
+		for (Projet p : equipe_municipale.projetsEtudies) {
 			System.out.println(p);
 		}
 	}
