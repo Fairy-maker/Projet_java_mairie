@@ -34,7 +34,7 @@ public class Projet {
 		return secteur;
 	}
 
-	public double getCoutTotal() throws Error {
+	public int getCoutTotal() throws Error {
 	    return couts.getCoutTotal();
 	}
 	
