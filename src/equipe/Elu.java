@@ -13,16 +13,16 @@ public class Elu extends Personne{
 	public void estimer_benefice(Cout cout) {
 
 		/** Simuler un coût réel de manière stochastique. */
-		double coutreel = 3000 + random.nextInt(30003); /** tout comme les autres couts on a fixe le cout réel sur un intervalle allant de [1000 à 10000] déterminé de manière aléatoire puisque la consigne demande un processus stochastique*/
+		double revenus = 3000 + random.nextInt(30003); /** tout comme les autres couts on a fixe le cout réel sur un intervalle allant de [1000 à 10000] déterminé de manière aléatoire puisque la consigne demande un processus stochastique*/
 
 		/** coût estimé total par les évaluateurs (voir la classe Evaluateur). */
 		double coutestime = cout.getCoutEco() + cout.getCoutSocio() + cout.getCoutEnv();
 
 		/** bénéfice = cout estimé - cout réel (déterminer aléatoirement). */
-		this.benefice = coutreel - coutestime;
+		this.benefice = revenus - coutestime;
 
 		System.out.println("Coût total estimé par nos trois évaluateurs : " + coutestime + " € ");
-		System.out.println("Coût réel : " + coutreel + " € ");
+		System.out.println("Coût réel : " + revenus + " € ");
 		System.out.println("Bénéfice estimé par l'élu : " + benefice + " € " + "\n ");
 		
 

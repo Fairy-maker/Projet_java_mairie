@@ -18,7 +18,7 @@ public class Projet {
 		this.titre = titre;
 		this.description = description;
 		this.secteur = secteur;
-		this.cout = new Cout(0, 0, 0);
+		this.cout = new Cout(0,0,0);
 	}
 
 	public String getTitre() {
