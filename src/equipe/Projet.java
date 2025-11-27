@@ -6,15 +6,15 @@ public class Projet {
 	private String description;
 	private Secteur secteur;
 	private Cout cout;
-	private double benefice;
+	private int benefice;
 	
 	
 	
-	public double getBenefice() {
+	public int getBenefice() {
 		return benefice;
 	}
 
-	public void setBenefice(double benefice) {
+	public void setBenefice(int benefice) {
 		this.benefice = benefice;
 	}
 

@@ -24,18 +24,6 @@ public class GloutonAjoutSolver {
 import java.util.*;
 
 
-interface ObjetDansSacADos {
-	int getUtilite();
-	int[] getCouts();
-}
-
-interface SacADos {
-	int getDimension();
-	int[] getBudgets();
-	List<ObjetDansSacADos> getObjets();
-}
-
-
 public class GloutonAjoutSolver {
 	
 	public static List<ObjetDansSacADos> resolutionParMethodeGloutonne(SacADos sacADos) throws Exception {

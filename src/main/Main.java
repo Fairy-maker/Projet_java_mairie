@@ -39,11 +39,16 @@ public class Main {
 		Equipe_municipale equipeMunicipale = new Equipe_municipale(elu, evaluateurEco, evaluateurSocio, evaluateurEnv, expert);
 		System.out.println("-------- Simulation des Projets --------\n");
 		equipeMunicipale.executerUnCycleDeSimulation();
-		System.out.println("\n-------- Voici les projets retenus : -------- \n");
-		for (Projet p : Equipe_municipale.ProjetsEtudies) {
+		System.out.println("\n-------- Voici les projets etudies : -------- \n");
+		for (Projet p : equipeMunicipale.projetsEtudies) {
 			System.out.println(p);
-
 		}
+		
+		// On va choisir les projets a conserver parmis la liste des projets etudies
+		
+		
+		
+		
 	}
 }
 
