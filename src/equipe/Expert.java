@@ -3,23 +3,26 @@ package equipe;
 import java.util.*;
 
 public class Expert extends Personne{
-	private List <Secteur> secteur; //chaque expert est spécialisé dans une liste de secteurs que l'on a definit dans notre énumération secteur
-	private Random random = new Random();  //pour faire le processus stochastique
+	//chaque expert est spécialisé dans une liste de secteurs que l'on a definit dans notre énumération secteur
+	private List <Secteur> secteur;
+	//pour faire le processus stochastique
+	private Random random;  
 
-	public Expert (String nom, String prenom, int age, List <Secteur> secteur) {
+	public Expert (String nom, String prenom, int age, List <Secteur> secteur, Random random) {
 		super(nom, prenom, age);
 		this.secteur = secteur; 
+		this.random = random;
 	}
 
-	public List<Secteur> getSecteur() {
+	public List<Secteur> getSecteurs() {
 		return secteur;
 	}
 
-	public void setSecteurs(List<Secteur> secteur) {
-		this.secteur = secteur;
+	public void setSecteurs(List<Secteur> secteurs) {
+		this.secteur = secteurs;
 	}
 
-	public Projet proposer_projet () {
+	public Projet proposerProjet () {
 		Secteur secteurchoisi = secteur.get(random.nextInt(secteur.size())); //Un expert est spécialisé dans un secteur aléatoire parmi ceux proposé par l'énoncé
 		String titre = "un projet dans le secteur " + secteurchoisi; // génère le titre du projet dans le secteur choisi
 		String description = "Projet dans le secteur " + secteurchoisi; //génère la description du projet dans le secteur choisi

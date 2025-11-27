@@ -4,21 +4,25 @@ package equipe;
 public class Projet {
 	private String titre;
 	private String description;
+	private Secteur secteur;
+	private Cout cout;
 	private double benefice;
-	private double coutTotal;
+	
+	
+	
+	public double getBenefice() {
+		return benefice;
+	}
 
 	public void setBenefice(double benefice) {
 		this.benefice = benefice;
 	}
 
-	private Secteur secteur;
-	private Cout cout;
-	
 	public Projet (String titre, String description, Secteur secteur) {
 		this.titre = titre;
 		this.description = description;
 		this.secteur = secteur;
-		this.cout = new Cout(0,0,0);
+		this.cout = new Cout();
 	}
 
 	public String getTitre() {
