@@ -3,7 +3,7 @@ package equipe;
 import java.util.*;
 
 /** Un Elu est une personne. Un Elu à donc un nom, un prénom et un âge. */
-public class Elu extends Personne{
+public class Elu extends Personne {
 	private Random random;
 	private double benefice;
 
