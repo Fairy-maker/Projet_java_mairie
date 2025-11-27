@@ -13,9 +13,11 @@ import equipe.Equipe_municipale;
 import equipe.Projet;
 
 public class Main {
-	public static void main(String args[]) { //technique reprises du TP4 + certains prénoms et noms sont inspiré du TP 3 et TP 4
+	//technique reprises du TP4 + certains prénoms et noms sont inspiré du TP 3 et TP 4
+	public static void main(String args[]) { 
 		Random random = new Random(0);
 		// technique inspiré de la playlist youtube de Jiraws
+		// Création de l'équipe municipale
 		Elu elu = new Elu ("Martin","Bernard", 20, random);
 		Evaluateur evaluateurEco = new Evaluateur ("Benameur", "Féryel", 33, TypeEvaluationCout.ECONOMIQUE, random);
 		Evaluateur evaluateurSocio = new Evaluateur("Baigneres", "Clara", 32, TypeEvaluationCout.SOCIAL, random);
@@ -37,13 +39,39 @@ public class Main {
 		expert.add(expertAttractivitéEco);
 
 		Equipe_municipale equipeMunicipale = new Equipe_municipale(elu, evaluateurEco, evaluateurSocio, evaluateurEnv, expert);
+		
 		System.out.println("-------- Simulation des Projets --------\n");
 		equipeMunicipale.executerUnCycleDeSimulation();
+		
 		System.out.println("\n-------- Voici les projets retenus : -------- \n");
 		for (Projet p : Equipe_municipale.ProjetsEtudies) {
 			System.out.println(p);
 
 		}
+		
+		
+		// Pour qu'on voit la partie test sur notre console : 
+		System.out.println("\n Test sur le sac a dos : \n");
+		// Création de nos objets
+		Objet Objet1 = new Objet (50, 2200, 400, 230 );
+		Objet Objet2 = new Objet (30, 1200, 300, 220 );
+		Objet Objet3 = new Objet (60, 1240, 600, 120 );
+		
+		// Création du sac a dos :
+		sacADos sacados1 = new sacADos(2, 7000);
+		// On ajout les objets dans le sac a dos :
+		sacados1.add(Objet1);
+		sacados1.add(Objet2);
+		sacados1.add(Objet3);
+		
+		System.out.println("Les objets dans le sac sont :" + " " + getObjet());
+		
+		// Pour qu'on voit la partie test de la méthode gloutonne sur notre console : 
+		System.out.println("\n Test sur la methode gloutonne : \n ");
+		List<ObjetDansSacADos> Objetsutilisépoursolver = new ArrayList<>;
+		
+
+
 	}
 }
 
