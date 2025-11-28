@@ -67,7 +67,7 @@ public class Main {
         for (ObjetDansSacADos o : solution)
             System.out.println(o);
 
-        System.out.println("Utilite totale = " +
+        System.out.println("Utilite totale de la solution est : " +
             solution.stream().mapToInt(ObjetDansSacADos::getUtilite).sum());
     }
 }
