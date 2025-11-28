@@ -7,7 +7,7 @@ public class Equipe_municipale {
 	private final Evaluateur evaluateurSocio;
 	private final Evaluateur evaluateurEnv;
 	public List <Expert> expert;
-	public static List <Projet> ProjetsEtudies = new ArrayList<>();
+	public static List <Projet> projetsEtudies = new ArrayList<>();
 	
 	public Equipe_municipale(Elu elu, Evaluateur evaluateurEco, Evaluateur evaluateurSocio, Evaluateur evaluateurEnv, List <Expert> expert) {
 		this.elu = elu;
@@ -24,7 +24,7 @@ public class Equipe_municipale {
 	 * étuidés par la municipalité.
 	 */
 	public void executerUnCycleDeSimulation() {
-		if(!this.ProjetsEtudies.isEmpty()) {
+		if(!this.projetsEtudies.isEmpty()) {
 			return;
 		}
 		for(Expert expert: this.expert) {
@@ -33,7 +33,7 @@ public class Equipe_municipale {
 	        evaluateurSocio.evaluerCoutProjet(p);
 	        evaluateurEnv.evaluerCoutProjet(p);
 	        elu.estimerBenefice(p.getCout());
-	        ProjetsEtudies.add(p);								
+	        projetsEtudies.add(p);								
 		}
 	}
 	

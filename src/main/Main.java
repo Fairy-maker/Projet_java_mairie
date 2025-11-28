@@ -9,12 +9,15 @@ import equipe.Evaluateur;
 import equipe.Expert;
 import equipe.Secteur;
 import equipe.TypeEvaluationCout;
+import sacADos.Objet;
 import equipe.Equipe_municipale;
 import equipe.Projet;
+import sacADos.SacADosImpl;
+import solveur_glouton.*;
 
 public class Main {
 	//technique reprises du TP4 + certains prénoms et noms sont inspiré du TP 3 et TP 4
-	public static void main(String args[]) { 
+	public static void main(String[] args) throws Exception { 
 		Random random = new Random(0);
 		// technique inspiré de la playlist youtube de Jiraws
 		// Création de l'équipe municipale
@@ -44,34 +47,28 @@ public class Main {
 		equipeMunicipale.executerUnCycleDeSimulation();
 		
 		System.out.println("\n-------- Voici les projets retenus : -------- \n");
-		for (Projet p : Equipe_municipale.ProjetsEtudies) {
+		for (Projet p : Equipe_municipale.projetsEtudies) {
 			System.out.println(p);
-
 		}
-		
-		
-		// Pour qu'on voit la partie test sur notre console : 
-		System.out.println("\n Test sur le sac a dos : \n");
-		// Création de nos objets
-		Objet Objet1 = new Objet (50, 2200, 400, 230 );
-		Objet Objet2 = new Objet (30, 1200, 300, 220 );
-		Objet Objet3 = new Objet (60, 1240, 600, 120 );
-		
-		// Création du sac a dos :
-		sacADos sacados1 = new sacADos(2, 7000);
-		// On ajout les objets dans le sac a dos :
-		sacados1.add(Objet1);
-		sacados1.add(Objet2);
-		sacados1.add(Objet3);
-		
-		System.out.println("Les objets dans le sac sont :" + " " + getObjet());
-		
-		// Pour qu'on voit la partie test de la méthode gloutonne sur notre console : 
-		System.out.println("\n Test sur la methode gloutonne : \n ");
-		List<ObjetDansSacADos> Objetsutilisépoursolver = new ArrayList<>;
-		
 
+		// Sac à dos
+        SacADosImpl sac = new SacADosImpl(3, new int[]{3000, 2000, 1000});
+        for (Projet p : equipeMunicipale.projetsEtudies) {
+            ProjetDansSacADos pd = new ProjetDansSacADos(p);
+            sac.add(pd);
+        }
 
-	}
+        // Solveur glouton
+        SortByInterest comparator = new SortByInterest();
+        List<ObjetDansSacADos> solution =
+            GloutonAjoutSolver.resolutionParMethodeGloutonne(sac, comparator);
+
+        System.out.println("\n-------- Solution gloutonne --------\n");
+        for (ObjetDansSacADos o : solution)
+            System.out.println(o);
+
+        System.out.println("Utilite totale = " +
+            solution.stream().mapToInt(ObjetDansSacADos::getUtilite).sum());
+    }
 }
 
