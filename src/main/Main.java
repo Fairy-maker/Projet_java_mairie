@@ -9,6 +9,7 @@ import equipe.Evaluateur;
 import equipe.Expert;
 import equipe.Secteur;
 import equipe.TypeEvaluationCout;
+import sacADos.Objet;
 import equipe.Equipe_municipale;
 import equipe.Projet;
 
@@ -37,16 +38,34 @@ public class Main {
 		expert.add(expertAttractivitéEco);
 
 		Equipe_municipale equipeMunicipale = new Equipe_municipale(elu, evaluateurEco, evaluateurSocio, evaluateurEnv, expert);
+		
+		
+		// Test sur l'équipe municipale 
+		
 		System.out.println("-------- Simulation des Projets --------\n");
 		equipeMunicipale.executerUnCycleDeSimulation();
+		
+		
 		System.out.println("\n-------- Voici les projets etudies : -------- \n");
 		for (Projet p : equipeMunicipale.projetsEtudies) {
 			System.out.println(p);
 		}
 		
-		// On va choisir les projets a conserver parmis la liste des projets etudies
 		
+		// Test sur le sacADos 
 		
+		System.out.println("\n Test sur le sac a dos : \n");
+		// Création de nos objets
+		Objet Objet1 = new Objet (50, [2200, 400, 230]);
+		Objet Objet2 = new Objet (30, 1200, 300, 220 );
+		Objet Objet3 = new Objet (60, 1240, 600, 120 );
+		
+		// Création du sac a dos :
+		sacADos sacados1 = new sacADos(2, 7000);
+		// On ajout les objets dans le sac a dos :
+		sacados1.add(Objet1);
+		sacados1.add(Objet2);
+		sacados1.add(Objet3);		
 		
 		
 	}

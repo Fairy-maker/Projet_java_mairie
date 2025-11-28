@@ -7,7 +7,7 @@ public class SortByInterest implements Comparator<ObjetDansSacADos> {
 	
 	private int sommeDesCouts(ObjetDansSacADos o) {
 		int somme = 0;
-		for (int c : o.getCouts()) {
+		for (int c : o.setCouts()) {
 			somme += c;
 		}
 		return somme;
