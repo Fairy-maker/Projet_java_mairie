@@ -15,7 +15,7 @@ public class SacADosImpl implements solveur_glouton.SacADos {
 
     public SacADosImpl(int dimension, int[] budgets) {
         this.dimension = dimension;
-        this.budgets = budgets.clone();
+        this.budgets = budgets.clone(); // on clone le tableau budget
     }
 
     @Override

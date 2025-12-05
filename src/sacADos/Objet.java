@@ -10,12 +10,19 @@ public class Objet {
 
 	    public Objet(int utilite, int[] couts) {
 	        this.utilite = utilite;
-	        this.couts = couts.clone();
+	        // on utilise clone pour cloner le tableau. C'est une méthode qui provient de la classe Object en java 
+	        // la référence sur ce site : https://perso.telecom-paristech.fr/hudry/coursJava/avance/dupliquer.html
+	        this.couts = couts.clone(); 
 	    }
 
-	    public int getUtilite() { return utilite; }
-	    public int[] getCouts() { return couts.clone(); }
-
+	    public int getUtilite() { 
+	    	return utilite; 
+	    	}
+	    // renvoie une copie du tableau
+	    public int[] getCouts() { 
+	    	return couts.clone(); 
+	    	}
+	    // methode qui nous permets d'accéder directement à une case de notre tableau. En effet idx corresponds à l'index de l'élément dans notre tableau
 	    public int getCoutAt(int idx) {
 	        return couts[idx];
 	    }

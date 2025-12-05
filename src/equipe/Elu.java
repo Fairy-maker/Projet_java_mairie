@@ -2,15 +2,31 @@ package equipe;
 
 import java.util.*;
 
-/** Un Elu est une personne. Un Elu à donc un nom, un prénom et un âge. */
+/**
+ * Un élu est une personne faisant partie de l'équipe muncipale qui estime le bénéfice 
+ * @author feryel benameur
+ * @version 1.0
+ */
 public class Elu extends Personne {
 	private Random random;
 	private double benefice;
 
+	/**
+	 * Constructeur par défaut
+	 * @param nom nom de l'élu
+	 * @param prenom prénom de l'élu
+	 * @param age âge de l'élu
+	 * @param random utiliser pour faire le processus stochastique
+	 */
 	public Elu (String nom, String prenom, int age, Random random) {
 		super(nom, prenom, age);
 		this.random = random;
 	}
+	
+	/**
+	 * Permet d'estimer le bénéfice d'un projet
+	 * @param cout coût d'un projet
+	 */
 	public void estimerBenefice(Cout cout) {
 
 		/** Simuler un coût réel de manière stochastique. */
@@ -22,7 +38,9 @@ public class Elu extends Personne {
 		/** bénéfice = cout estimé - cout réel (déterminer aléatoirement). */
 		this.benefice = revenus - coutTotalEstime;
 
-	
+	/**
+	 * Renvoie le coût total estimé par nos évaluateurs, le coût réel ainsi que le bénéfice évalué par l'élu
+	 */
 
 		System.out.println("Coût total estimé par nos trois évaluateurs : " + coutTotalEstime + " € ");
 		System.out.println("Coût réel : " + revenus + " € ");

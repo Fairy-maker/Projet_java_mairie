@@ -1,26 +1,47 @@
 package equipe;
 
 import java.util.*;
+/**
+ * Un évaluateur est une personne qui détermine un type de coût
+ * @author feryelbenameur
+ * @version 1.0
+ */
 
 public class Evaluateur extends Personne {
 	
 	private TypeEvaluationCout type;
-	private Random random; // Nous permet de générer le processus stochastique
+	private Random random;
 
+	/**
+	 * Constructeur qui nous permet de définir un évaluateur
+	 * @param nom nom de l'évaluateur
+	 * @param prenom prénom de l'évaluateur
+	 * @param age âge de l'évaluateur
+	 * @param type type de coût dans lequel l'évaluateur est spécialisé
+	 * @param random random nous permet de générer le processus stochastique
+	 */
 	public Evaluateur(String nom, String prenom, int age, TypeEvaluationCout type, Random random) { // Notre constructeur
 		super(nom, prenom, age);
 		this.type = type;
 		this.random = random;
 	}    
 	
+	/**
+	 * permet d'accéder au type de l'évaluateur
+	 * @return le type de coût de l'évaluateur
+	 */
+	
 	public TypeEvaluationCout getType() {
 		return type;
 	}
 	
-	/** Les évaluateurs évaluent le coût du projet en fonction de leur domaine. 
-	 * En effet, un évaluateur va évaluer un cout économique s'il est
-	 *  spécialisé dans l'économie */
-	/**@param Projet p est un projet p */
+	/**
+	 * Méthode qui permet aux évaluateur d'évaluer le coûts en fonction du type auxquelles ils sont "spécialisé". 
+	 * Un évaluateur économique va évaluer le coût économique
+	 * Un évaluateur social va évaluer le coût social
+	 * Un évaluateur environnemental va évaluer le coût environnemental
+	 * @param p est un projet p
+	 */
 	public void evaluerCoutProjet(Projet p) {
 		// si l'évaluteur est type économique il évalue le premier bloc,
 		// s'il est de type social il évalue le deuxième etc..
@@ -46,8 +67,5 @@ public class Evaluateur extends Personne {
 		}
 
 	}
-	
-	//public void renseigner_cout_projet(Projet p){
-	//	evaluerCoutProjet(p); 
-	//}
+
 }

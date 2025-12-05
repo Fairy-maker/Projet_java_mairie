@@ -63,7 +63,7 @@ public class Main {
         List<ObjetDansSacADos> solution =
             GloutonAjoutSolver.resolutionParMethodeGloutonne(sac, comparator);
 
-        System.out.println("\n-------- Solution gloutonne --------\n");
+        System.out.println("\n------- Solution gloutonne -------\n");
         for (ObjetDansSacADos o : solution)
             System.out.println(o);
 
