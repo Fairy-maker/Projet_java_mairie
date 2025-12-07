@@ -52,32 +52,35 @@ public class Projet {
 	public String getTitre() {
 		return titre;
 	}
-/**
- * permet de définir le titre du projet
- * @param titre le nouveau titre du projet
- */
+
+    /**
+     * permet de définir le titre du projet
+     * @param titre le nouveau titre du projet
+     */
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
-/** 
- * permet d'accéder à la description du projet
- * @return la description du projet
- */ 
-	public String getDescription() {
+
+    /**
+     * permet d'accéder à la description du projet
+     * @return la description du projet
+     */
+    public String getDescription() {
 		return description;
 	}
-/**
- * permet de définir la description du projet
- * @param description la nouvelle description du projet
- */
+
+    /**
+     * permet de définir la description du projet
+     * @param description la nouvelle description du projet
+     */
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-/**
- * permet d'accéder au secteurs(s) du projet
- * @return le secteur(s) du projet
- */
+    /**
+     * permet d'accéder au secteurs(s) du projet
+     * @return le secteur(s) du projet
+     */
 	public Secteur getSecteur() {
 		return secteur;
 	}
@@ -89,17 +92,19 @@ public class Projet {
 	public void setSecteur(Secteur secteur) {
 		this.secteur = secteur;
 	}
-/**
- * permet d'accéder au coût du projet
- * @return le coût du projet
- */
+
+    /**
+     * permet d'accéder au coût du projet
+     * @return le coût du projet
+     */
 	public Cout getCout() {
 		return cout;
 	}
-/**
- * permet de définir le coût du projet
- * @param cout la nouvelle valeur pour le coût du projet
- */
+
+    /**
+     * permet de définir le coût du projet
+     * @param cout la nouvelle valeur pour le coût du projet
+     */
 	public void setCout(Cout cout) {
 		this.cout = cout;
 	}
@@ -111,18 +116,18 @@ public class Projet {
 	public double getCoutTotal() {
 	    return cout.getCoutEco() + cout.getCoutSocio() + cout.getCoutEnv();
 	}
-	
-/**
- * Méthode qui renvoie une représentation textuelle dans la console du projet. On a donc : 
- * <ul>
- * <li> un titre, </li>
- * <li> une description, </li>
- * <li> une liste de secteur(s), </li>
- * <li> les trois coûts donnés par nos évaluateurs, </li>
- * <li> le coût total </li>
- * </ul>
- * @return une chaîne de caractères décrivant le projet
- */
+
+    /**
+     * Méthode qui renvoie une représentation textuelle dans la console du projet. On a donc :
+     * <ul>
+     * <li> un titre, </li>
+     * <li> une description, </li>
+     * <li> une liste de secteur(s), </li>
+     * <li> les trois coûts donnés par nos évaluateurs, </li>
+     * <li> le coût total </li>
+     * </ul>
+     * @return une chaîne de caractères décrivant le projet
+     */
 	@Override
 	public String toString() {
 	    return  "Projet : " + titre + "\nDescription : " + description + 

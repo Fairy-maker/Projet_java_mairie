@@ -25,8 +25,8 @@ public class Main {
 		Evaluateur evaluateurEco = new Evaluateur ("Benameur", "Féryel", 33, TypeEvaluationCout.ECONOMIQUE, random);
 		Evaluateur evaluateurSocio = new Evaluateur("Baigneres", "Clara", 32, TypeEvaluationCout.SOCIAL, random);
 		Evaluateur evaluateurEnv = new Evaluateur("Boucheron", "Lucie", 34, TypeEvaluationCout.ENVIRONNEMENT, random);
-		Expert expertSanté = new Expert ("Kayn", "Georges", 24, List.of(Secteur.SANTÉ), random);
-		Expert expertAttractivitéEco = new Expert ("Jam", "Emmanuel", 35, List.of(Secteur.ATTRACTIVITÉ_ÉCONOMIQUE), random);
+		Expert expertSante = new Expert ("Kayn", "Georges", 24, List.of(Secteur.SANTÉ), random);
+		Expert expertAttractiviteEco = new Expert ("Jam", "Emmanuel", 35, List.of(Secteur.ATTRACTIVITÉ_ÉCONOMIQUE), random);
 		Expert expertEcologie = new Expert ("Thumberg", "Greta", 19, List.of(Secteur.ÉCOLOGIE), random);
 		Expert expertCulture = new Expert ("Snow", "Jon", 45, List.of(Secteur.CULTURE), random);
 		Expert expertSport = new Expert ("Marchand", "Léon", 28, List.of(Secteur.SPORT), random);
@@ -34,12 +34,12 @@ public class Main {
 
 		// technique inspiré du TP6 
 		List<Expert> expert = new ArrayList<>();
-		expert.add(expertSanté);
+		expert.add(expertSante);
 		expert.add(expertEducation);
 		expert.add(expertSport);
 		expert.add(expertCulture);
 		expert.add(expertEcologie);
-		expert.add(expertAttractivitéEco);
+		expert.add(expertAttractiviteEco);
 
 		Equipe_municipale equipeMunicipale = new Equipe_municipale(elu, evaluateurEco, evaluateurSocio, evaluateurEnv, expert);
 		
