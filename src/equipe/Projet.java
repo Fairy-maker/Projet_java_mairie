@@ -1,7 +1,7 @@
 package equipe;
 
 /**
- * Répresente les projets qui sont définit par :
+ * Répresente les projets qui sont définits par :
  * <ul>
  * <li> un titre, </li>
  * <li> une description, </li>
@@ -14,48 +14,41 @@ package equipe;
  */
 
 public class Projet {
+	
 	private String titre;
 	private String description;
 	private Secteur secteur;
 	private Cout cout;
 	private int benefice;
 	
-/**
- * permet d'accéder au bénéfice d'un projet
- * @return le bénéfice du projet
- */	
+  /**
+   * permet d'accéder au bénéfice d'un projet
+   * @return le bénéfice du projet
+   */	
 	public int getBenefice() {
 		return benefice;
 	}
-
-	/**
-	 * Permet de définir le bénéfice du projet
-	 * @param benefice la nouvelle valeure pour le bénéfice du projet
-	 */
-	public void setBenefice(int benefice) {
-		this.benefice = benefice;
-	}
 	
-/**
- * Constructeur qui nous permet de construire un projet
- * @param titre titre du projet
- * @param description description du projet
- * @param secteur secteurs dans lequel est rattaché le projet (le projet peut être rattaché à plusieurs secteurs)
- * <p>
- * De plus, ce constructeur nous donne un cout pour le projet
- * </p>
- */
-
-	public Projet (String titre, String description, Secteur secteur) {
+  /**
+   * Constructeur qui nous permet de construire un projet
+   * @param titre titre du projet
+   * @param description description du projet
+   * @param secteur secteurs dans lequel est rattaché le projet (le projet peut être rattaché à plusieurs secteurs)
+   * <p>
+   * De plus, ce constructeur nous donne un cout pour le projet
+   * </p>
+   */
+	public Projet(String titre, String description, Secteur secteur) {
 		this.titre = titre;
 		this.description = description;
 		this.secteur = secteur;
 		this.cout = new Cout();
 	}
-/**
- * permet d'accéder au titre du projet
- * @return le titre du projet
- */
+	
+  /**
+   * permet d'accéder au titre du projet
+   * @return le titre du projet
+   */
 	public String getTitre() {
 		return titre;
 	}
