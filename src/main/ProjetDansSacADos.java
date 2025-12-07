@@ -2,9 +2,7 @@ package main;
 
 import equipe.Projet;
 import equipe.Cout;
-import solveur_glouton.ObjetDansSacADos;
-import equipe.Cout;
-import solveur_glouton.ObjetDansSacADos;
+import solveurGlouton.ObjetDansSacADos;
 
 public class ProjetDansSacADos implements ObjetDansSacADos {
 

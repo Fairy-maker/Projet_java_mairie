@@ -1,4 +1,4 @@
-package solveur_glouton;
+package solveurGlouton;
 
 public interface ObjetDansSacADos {
 	int getUtilite();

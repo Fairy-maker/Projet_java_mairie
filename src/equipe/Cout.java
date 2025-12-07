@@ -14,9 +14,11 @@ package equipe;
  * @version 1.0
  */
 public class Cout {
+
 	private int coutEco;
 	private int coutSocio;
 	private int coutEnv;
+
 	/**
 	 * Constructeur par défaut de la classe Coût
 	 * @param coutEco
@@ -27,21 +29,10 @@ public class Cout {
 	 * </p>
 	 */
 	Cout() {
-		this.coutEco = -1;
-		this.coutSocio = -1;
-		this.coutEnv = -1;
-	}	
-/**
- * Créer un ensemble de coûts (économique, social et environnemental) 
- * @param coutEco
- * @param coutSocio
- * @param coutEnv
- */
-	Cout(int coutEco, int coutSocio, int coutEnv){
-		this.coutEco = coutEco;
-		this.coutSocio = coutSocio;
-		this.coutEnv = coutEnv;
-	}
+        this.coutEco = -1;
+        this.coutSocio = -1;
+        this.coutEnv = -1;
+    }
 
 	/**
 	 * permet d'accéder au coût économque qui était en private
@@ -58,10 +49,11 @@ public class Cout {
 	public void setCoutEco(int coutEco) {
 		this.coutEco = coutEco;
 	}
-/**
- * permet d'accéder au coût social qui est en private
- * @return le cout social
- */
+
+    /**
+     * permet d'accéder au coût social qui est en private
+     * @return le cout social
+     */
 	public int getCoutSocio() {
 		return coutSocio;
 	}
@@ -89,12 +81,12 @@ public class Cout {
 	public void setCoutEnv(int coutEnv) {
 		this.coutEnv = coutEnv;
 	}
-	
-/**
- * Calcul le coût total qui est la somme des trois coûts (économique, social et environnemental)
- * @return le cout total
- * @throws Error si au moins un des coûts n'a pas encore été évalué (valeur qui est de -1)
- */
+
+    /**
+     * Calcul le coût total qui est la somme des trois coûts (économique, social et environnemental)
+     * @return le cout total
+     * @throws Error si au moins un des coûts n'a pas encore été évalué (valeur qui est de -1)
+     */
 	public int getCoutTotal() throws Error {
 		if (this.coutEco == -1 || this.coutEnv == -1 || this.coutSocio == -1) {
 			throw new Error("Un des couts n'est pas encore évalué");

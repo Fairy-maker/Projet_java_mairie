@@ -1,7 +1,13 @@
-package solveur_glouton;
+package solveurGlouton;
 
 public class Utils {
 
+    /**
+     * @param a
+     * @param b
+     * @return
+     * @throws Exception
+     */
 	public static int[] addCoordinates(int[] a, int[] b) throws Exception {
 		if (a.length != b.length) {
 			throw new IllegalArgumentException("Arrays of different sizes");

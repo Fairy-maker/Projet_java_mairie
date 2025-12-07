@@ -8,9 +8,9 @@ package equipe;
 
 public class Personne {
 
-	private String nom;
-	private String prenom;
-	private int age; 
+	private final String nom;
+	private final String prenom;
+	private final int age;
 
 	/**
 	 * Constructeur qui renvoie les personnes de l'équipe municipale
@@ -18,7 +18,7 @@ public class Personne {
 	 * @param prenom prénom d'une personne
 	 * @param age âge d'une personne 
 	 */
-	public Personne (String nom, String prenom, int age ){
+	public Personne (String nom, String prenom, int age) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.age = age;	
@@ -31,15 +31,6 @@ public class Personne {
 	public String getNom() {
 		return nom;
 	}
-	
-	/**
-	 * permet de définir le nom d'une personne
-	 * @param nom le nouveau nom de la personne
-	 */
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
 
 	/**
 	 * permet d'accéder au prénom d'une personne
@@ -48,29 +39,5 @@ public class Personne {
 	public String getPrenom() {
 		return prenom;
 	}
-	
-	/**
-	 * permet de définir le prénom d'une personne
-	 * @param prenom le nouveau prénom de la personne
-	 */
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-/**
- * permet d'accéder à l'âge d'une personne
- * @return l'agé de la personne
- */
-	public int getAge() {
-		return age;
-	}
-	
-	/**
-	 * permet de définir l'âge d'une personne
-	 * @param age le nouvel âge de la personne 
-	 */
-
-	public void setAge(int age) {
-		this.age = age;
-	}
 }

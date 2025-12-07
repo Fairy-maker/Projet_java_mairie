@@ -1,16 +1,16 @@
 package equipe;
 
 import java.util.*;
+
 /**
  * Un évaluateur est une personne qui détermine un type de coût
  * @author feryelbenameur
  * @version 1.0
  */
-
 public class Evaluateur extends Personne {
 	
-	private TypeEvaluationCout type;
-	private Random random;
+	private final TypeEvaluationCout type;
+	private final Random random;
 
 	/**
 	 * Constructeur qui nous permet de définir un évaluateur
@@ -25,42 +25,33 @@ public class Evaluateur extends Personne {
 		this.type = type;
 		this.random = random;
 	}    
-	
+
 	/**
-	 * permet d'accéder au type de l'évaluateur
-	 * @return le type de coût de l'évaluateur
-	 */
-	
-	public TypeEvaluationCout getType() {
-		return type;
-	}
-	
-	/**
-	 * Méthode qui permet aux évaluateur d'évaluer le coûts en fonction du type auxquelles ils sont "spécialisé". 
+	 * Méthode qui permet aux évaluateur d'évaluer le coûts en fonction du type auxquelles ils sont "spécialisés".
 	 * Un évaluateur économique va évaluer le coût économique
 	 * Un évaluateur social va évaluer le coût social
 	 * Un évaluateur environnemental va évaluer le coût environnemental
 	 * @param p est un projet p
 	 */
 	public void evaluerCoutProjet(Projet p) {
-		// si l'évaluteur est type économique il évalue le premier bloc,
+		// si l'évaluateur est type économique il évalue le premier bloc,
 		// s'il est de type social il évalue le deuxième etc..
 		switch (this.type) {
 		
 		case ECONOMIQUE:
 			// Pour avoir un cout économique entre 1000 et 10000 (on ne veut pas de cout économique 
 			// en dessous de 1000 car on se dit que les projets qui concernent les villes sont 
-			// souvent de grands projets qui ont un cout economique assez élevé
+			// souvent de grands projets qui ont un cout economique assez élevé)
 			p.getCout().setCoutEco(1000 + random.nextInt(10001));
 			break;
 
 		case SOCIAL:
-			// Pour avoir un coût social entre 1000 et 10000
+			// Pour avoir un coût social entre 100 et 1000
 			p.getCout().setCoutSocio(100 + random.nextInt(901)); 
 			break;
 
 		case ENVIRONNEMENT:
-			// pour avoir un coût environnemental entre 1000 et 10000
+			// pour avoir un coût environnemental entre 50 et 500
 			p.getCout().setCoutEnv(50 + random.nextInt(451));
 			break;
 			

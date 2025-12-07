@@ -1,4 +1,4 @@
-package solveur_glouton;
+package solveurGlouton;
 
 import java.util.Comparator;
 

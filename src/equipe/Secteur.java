@@ -6,11 +6,11 @@ package equipe;
  */
 
 public enum Secteur {
-	SPORT, 
-	SANTÉ, 
-	ÉDUCATION, 
-	CULTURE, 
-	ATTRACTIVITÉ_ÉCONOMIQUE, 
-	ÉCOLOGIE;
-
+	SPORT,
+    SANTE,
+	EDUCATION,
+	CULTURE,
+    ATTRACTIVITE_ECONOMIQUE,
+    ECOLOGIE;
 }
+

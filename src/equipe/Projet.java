@@ -15,10 +15,10 @@ package equipe;
 
 public class Projet {
 	
-	private String titre;
-	private String description;
-	private Secteur secteur;
-	private Cout cout;
+	private final String titre;
+	private final String description;
+	private final Secteur secteur;
+	private final Cout cout;
 	private int benefice;
 	
   /**
@@ -54,46 +54,6 @@ public class Projet {
 	}
 
     /**
-     * permet de définir le titre du projet
-     * @param titre le nouveau titre du projet
-     */
-	public void setTitre(String titre) {
-		this.titre = titre;
-	}
-
-    /**
-     * permet d'accéder à la description du projet
-     * @return la description du projet
-     */
-    public String getDescription() {
-		return description;
-	}
-
-    /**
-     * permet de définir la description du projet
-     * @param description la nouvelle description du projet
-     */
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-    /**
-     * permet d'accéder au secteurs(s) du projet
-     * @return le secteur(s) du projet
-     */
-	public Secteur getSecteur() {
-		return secteur;
-	}
-
-	/**
-	 * permet de définir le(s) secteur(s) du projet
-	 * @param secteur la nouvelle valeure pour le(s) secteur(s) du projet
-	 */
-	public void setSecteur(Secteur secteur) {
-		this.secteur = secteur;
-	}
-
-    /**
      * permet d'accéder au coût du projet
      * @return le coût du projet
      */
@@ -101,14 +61,6 @@ public class Projet {
 		return cout;
 	}
 
-    /**
-     * permet de définir le coût du projet
-     * @param cout la nouvelle valeur pour le coût du projet
-     */
-	public void setCout(Cout cout) {
-		this.cout = cout;
-	}
-	
 	/**
 	 * permet d'accéder au coût total du projet
 	 * @return le coût total du projet qui est la somme des trois coûts (économique, social, environnemental)

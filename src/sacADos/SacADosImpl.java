@@ -2,13 +2,11 @@ package sacADos;
 import java.util.List;
 
 import java.util.ArrayList;
-import equipe.Cout;
-import solveur_glouton.ObjetDansSacADos;
-import solveur_glouton.SacADos;
-import java.util.List;
+
+import solveurGlouton.ObjetDansSacADos;
 
 
-public class SacADosImpl implements solveur_glouton.SacADos {
+public class SacADosImpl implements solveurGlouton.SacADos {
 	private int dimension;
     private int[] budgets;
     private List<ObjetDansSacADos> objets = new ArrayList<>();
