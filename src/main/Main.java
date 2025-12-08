@@ -11,6 +11,7 @@ import equipe.Secteur;
 import equipe.TypeEvaluationCout;
 import equipe.EquipeMunicipale;
 import equipe.Projet;
+import sacADos.MethodeDeResolution;
 import sacADos.SacADosImpl;
 
 public class Main {
@@ -57,7 +58,7 @@ public class Main {
             sac.add(pd);
         }
 
-        sac.resoudre();
+        sac.resoudre(MethodeDeResolution.GLOUTON_A_AJOUT);
 
     }
 }

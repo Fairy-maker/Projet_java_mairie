@@ -1,5 +1,7 @@
 package solveurGlouton;
 
+import java.util.ArrayList;
+
 public class Utils {
 
     /**
@@ -18,8 +20,19 @@ public class Utils {
 		}
 		return result;
 	}
-	
-	public static boolean allSmaller(int[] a, int[] bounds) throws Exception {
+
+    public static int[] substractCoordinates(int[] a, int[] b) throws Exception {
+        if (a.length != b.length) {
+            throw new IllegalArgumentException("Arrays of different sizes");
+        }
+        int[] result = new int[a.length];
+        for (int i = 0; i < a.length; i++) {
+            result[i] = a[i] - b[i];
+        }
+        return result;
+    }
+
+    public static boolean allSmaller(int[] a, int[] bounds) throws Exception {
 		if (a.length != bounds.length) {
 			throw new IllegalArgumentException("Arrays of different sizes");
 		}
@@ -30,5 +43,33 @@ public class Utils {
 		}
 		return true;
 	}
+
+    public static int maxValue(int[] a) throws Exception {
+        if(a.length == 0) {
+            throw new IllegalArgumentException("Array is empty");
+        }
+        int currentMax = a[0];
+        for(int val: a) {
+            if(currentMax < val) {
+                currentMax = val;
+            }
+        }
+        return currentMax;
+    }
+
+    public static ArrayList<Integer> indicesOfValue(int valueToFind, int[] a) {
+        ArrayList<Integer> indices = new ArrayList<Integer>();
+        for(int i = 0; i < a.length; i++) {
+            if(valueToFind == a[i]) {
+                    indices.add(i);
+            }
+        }
+        return indices;
+    }
+
+    public static ArrayList<Integer> indicesOfMaxValue(int[] a) throws Exception {
+        int maxValue = maxValue(a);
+        return indicesOfValue(maxValue, a);
+    }
 
 }

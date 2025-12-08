@@ -39,19 +39,32 @@ public class SacADosImpl implements solveurGlouton.SacADos {
         return total;
     }
 
-    public void resoudre() throws Exception {
+    public void resoudre(MethodeDeResolution methodeDeResolution) throws Exception {
 
-        // Solveur glouton
-        SortByInterest comparator = new SortByInterest();
-        List<ObjetDansSacADos> solution =
-                GloutonAjoutSolver.resolutionParMethodeGloutonne(this, comparator);
+        switch (methodeDeResolution) {
 
-        System.out.println("\n------- Solution gloutonne -------\n");
-        for (ObjetDansSacADos o : solution)
-            System.out.println(o);
+            case GLOUTON_A_AJOUT:
 
-        System.out.println("Utilite totale de la solution est : " +
-                solution.stream().mapToInt(ObjetDansSacADos::getUtilite).sum());
+                // Solveur glouton
+                TriParUtiliteSurSommeDesCouts comparator = new TriParUtiliteSurSommeDesCouts();
+                List<ObjetDansSacADos> solution =
+                        GloutonAjoutSolver.resolutionParMethodeGloutonne(this, comparator);
+
+                System.out.println("\n------- Solution gloutonne -------\n");
+                for (ObjetDansSacADos o : solution)
+                    System.out.println(o);
+
+                System.out.println("Utilite totale de la solution est : " +
+                        solution.stream().mapToInt(ObjetDansSacADos::getUtilite).sum());
+
+            case GLOUTON_A_RETRAIT:
+                // TODO/A coder
+
+            case HILL_CLIMBING:
+                // TODO/A coder
+
+        }
+
 
     }
 

@@ -3,8 +3,10 @@ package solveurGlouton;
 import java.util.Comparator;
 
 
-public class SortByInterest implements Comparator<ObjetDansSacADos> {
-	
+public class TriParUtiliteSurSommeDesCouts implements Comparator<ObjetDansSacADos> {
+
+
+
 	private int sommeDesCouts(ObjetDansSacADos o) {
 		int somme = 0;
 		for (int c : o.getCouts()) {
