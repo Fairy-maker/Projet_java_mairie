@@ -12,7 +12,6 @@ import equipe.TypeEvaluationCout;
 import equipe.EquipeMunicipale;
 import equipe.Projet;
 import sacADos.SacADosImpl;
-import solveurGlouton.*;
 
 public class Main {
 	//technique reprises du TP4 + certains prénoms et noms sont inspiré du TP 3 et TP 4
@@ -51,23 +50,14 @@ public class Main {
 		}
 
 		// Sac à dos
-        SacADosImpl sac = new SacADosImpl(3, new int[]{3000, 2000, 1000});
+        int[] budgets = new int[]{ 3000, 2000, 1000 };
+        SacADosImpl sac = new SacADosImpl(budgets);
         for (Projet p : equipeMunicipale.getProjetsEtudies()) {
             ProjetDansSacADos pd = new ProjetDansSacADos(p);
             sac.add(pd);
         }
 
-        // Solveur glouton
-        SortByInterest comparator = new SortByInterest();
-        List<ObjetDansSacADos> solution =
-            GloutonAjoutSolver.resolutionParMethodeGloutonne(sac, comparator);
+        sac.resoudre();
 
-        System.out.println("\n------- Solution gloutonne -------\n");
-        for (ObjetDansSacADos o : solution)
-            System.out.println(o);
-
-        System.out.println("Utilite totale de la solution est : " +
-            solution.stream().mapToInt(ObjetDansSacADos::getUtilite).sum());
     }
 }
-

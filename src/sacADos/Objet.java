@@ -1,6 +1,8 @@
 package sacADos;
 
-public class Objet {
+import solveurGlouton.*;
+
+public class Objet implements ObjetDansSacADos {
 
     private final int utilite;
     private final int[] couts;
