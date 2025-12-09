@@ -46,9 +46,8 @@ public class SacADosImpl implements solveurGlouton.SacADos {
             case GLOUTON_A_AJOUT:
 
                 // Solveur glouton
-                TriParUtiliteSurSommeDesCouts comparator = new TriParUtiliteSurSommeDesCouts();
                 List<ObjetDansSacADos> solution =
-                        GloutonAjoutSolver.resolutionParMethodeGloutonne(this, comparator);
+                        GloutonAjoutSolver.resoudre(this);
 
                 System.out.println("\n------- Solution gloutonne -------\n");
                 for (ObjetDansSacADos o : solution)

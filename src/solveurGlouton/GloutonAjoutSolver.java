@@ -5,7 +5,7 @@ import java.util.*;
 
 public class GloutonAjoutSolver {
 
-	public static List<ObjetDansSacADos> resolutionParMethodeGloutonne(SacADos sacADos, Comparator<ObjetDansSacADos> comparator) throws Exception {
+	public static List<ObjetDansSacADos> resoudre(SacADos sacADos) throws Exception {
 
         // La variable result est initialement vide. Elle sera retournée à la fin de cette méthode.
         // Elle contiendra tous les objets retenus pour le sac à dos.
@@ -17,13 +17,13 @@ public class GloutonAjoutSolver {
 		// getObjets de notre interface sacADos 
 		List<ObjetDansSacADos> tousLesObjets = new ArrayList<>(sacADos.getObjets()); 
 
-		// Je définis comparatorByInterest comme le comparateur issus de SortByInterest
-		//SortByInterest comparatorByInterest = new SortByInterest();
+		// Je définis comparatorByInterest comme le comparateur issus de TriParUtiliteSurSommeDesCouts
+        TriParUtiliteSurSommeDesCouts comparatorByInterest = new TriParUtiliteSurSommeDesCouts();
 
 		// Je trie les objets conservés en fonction de comparatorByInterest
         // Par exemple, quand le comparateur est une instance de SortByInterest, les objets sont
         // triés du plus intéressant (indice 0) au moins intéressant.
-		tousLesObjets.sort(comparator);
+		tousLesObjets.sort(comparatorByInterest);
 
 		// Je conserve dans une variable la taille de la liste getBudgets(normalement 3)
 		int nbrBudgets = sacADos.getBudgets().length;
