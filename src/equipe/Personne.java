@@ -6,7 +6,7 @@ package equipe;
  * @version 1.0
  */
 
-public class Personne {
+public abstract class Personne {
 
 	private final String nom;
 	private final String prenom;

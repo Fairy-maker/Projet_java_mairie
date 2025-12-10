@@ -28,8 +28,12 @@ public class Projet {
 	public int getBenefice() {
 		return benefice;
 	}
-	
-  /**
+
+    public void setBenefice(int benefice) {
+        this.benefice = benefice;
+    }
+
+    /**
    * Constructeur qui nous permet de construire un projet
    * @param titre titre du projet
    * @param description description du projet

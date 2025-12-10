@@ -1,6 +1,8 @@
 package solveurGlouton;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Utils {
 
@@ -70,6 +72,23 @@ public class Utils {
     public static ArrayList<Integer> indicesOfMaxValue(int[] a) throws Exception {
         int maxValue = maxValue(a);
         return indicesOfValue(maxValue, a);
+    }
+
+    public static int[] sommeDesCouts(List<ObjetDansSacADos> objets) throws Exception {
+        int[] somme = new int[objets.getFirst().getCouts().length];
+        Arrays.fill(somme, 0);
+        for (ObjetDansSacADos obj: objets) {
+            somme = Utils.addCoordinates(somme, obj.getCouts());
+        }
+        return somme;
+    }
+
+    public static int utilite(List<ObjetDansSacADos> objets) {
+        int utilite = 0;
+        for (ObjetDansSacADos obj: objets) {
+            utilite += obj.getUtilite();
+        }
+        return utilite;
     }
 
 }

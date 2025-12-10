@@ -51,14 +51,14 @@ public class Main {
 		}
 
 		// Sac à dos
-        int[] budgets = new int[]{ 3000, 2000, 1000 };
+        int[] budgets = new int[]{ 30000, 2000, 1000 };
         SacADosImpl sac = new SacADosImpl(budgets);
         for (Projet p : equipeMunicipale.getProjetsEtudies()) {
             ProjetDansSacADos pd = new ProjetDansSacADos(p);
             sac.add(pd);
         }
 
-        sac.resoudre(MethodeDeResolution.GLOUTON_A_AJOUT);
+        sac.resoudre(MethodeDeResolution.HILL_CLIMBING);
 
     }
 }

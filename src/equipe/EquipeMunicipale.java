@@ -67,7 +67,7 @@ public class EquipeMunicipale {
 	        evaluateurEco.evaluerCoutProjet(p);
 	        evaluateurSocio.evaluerCoutProjet(p);
 	        evaluateurEnv.evaluerCoutProjet(p);
-	        elu.estimerBenefice(p.getCout());
+	        elu.estimerBenefice(p);
 	        this.projetsEtudies.add(p);
 		}
 	}
