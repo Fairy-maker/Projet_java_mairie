@@ -22,7 +22,7 @@ public class Elu extends Personne {
 		super(nom, prenom, age);
 		this.random = random;
 	}
-	
+
 	/**
 	 * Permet d'estimer le bénéfice d'un projet
 	 * @param p Le projet dont il faut évaluer le bénéfice

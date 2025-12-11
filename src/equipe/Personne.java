@@ -11,7 +11,6 @@ public abstract class Personne {
 	private final String nom;
 	private final String prenom;
 	private final int age;
-
 	/**
 	 * Constructeur qui renvoie les personnes de l'équipe municipale
 	 * @param nom nom d'une personne

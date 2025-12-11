@@ -45,7 +45,6 @@ public class EquipeMunicipale {
     public List<Projet> getProjetsEtudies() {
         return projetsEtudies;
     }
-
     /**
 	 * Exécute un cycle de simulation des projets 
 	 * <p>

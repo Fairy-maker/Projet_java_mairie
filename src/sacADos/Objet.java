@@ -15,7 +15,7 @@ public class Objet implements ObjetDansSacADos {
     public int getUtilite() {
         return utilite;
     }
-
+    
     // renvoie une copie du tableau
     public int[] getCouts() {
         return couts.clone();

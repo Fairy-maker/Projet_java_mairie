@@ -2,6 +2,7 @@ package solveurGlouton;
 
 import jdk.jshell.execution.Util;
 
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -17,7 +18,7 @@ public class HillClimbingSolver {
             throw new Error("La solution initiale est vide");
         }
 
-        // On construit la liste des objets non-inclus dans la solution courrante.
+        // On construit la liste des objets non-inclus dans la solution courante.
         List<ObjetDansSacADos> objetsNonInclus = new ArrayList<>();
         for (ObjetDansSacADos obj: sacADos.getObjets()) {
             if (!solutionInitiale.contains(obj)) {

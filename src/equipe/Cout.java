@@ -41,7 +41,6 @@ public class Cout {
 	public int getCoutEco() {
 		return coutEco;
 	}
-
 	/**
 	 * permet de définir le coût économique
 	 * @param coutEco nouvelle valeure du cout économique

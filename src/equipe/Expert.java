@@ -27,6 +27,7 @@ public class Expert extends Personne {
 		this.random = random;
 	}
 
+	
     /**
      * Méthode qui permet aux experts de créer/ proposer des projets en fonction des secteurs dans lesquels ils sont "spécialisé".
      * L'expert est spécialisé dans un secteur aléatoire parmi ceux proposé dans l'énumération secteur

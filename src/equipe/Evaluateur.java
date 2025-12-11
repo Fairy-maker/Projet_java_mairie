@@ -20,6 +20,7 @@ public class Evaluateur extends Personne {
 	 * @param type type de coût dans lequel l'évaluateur est spécialisé
 	 * @param random random nous permet de générer le processus stochastique
 	 */
+	
 	public Evaluateur(String nom, String prenom, int age, TypeEvaluationCout type, Random random) { // Notre constructeur
 		super(nom, prenom, age);
 		this.type = type;

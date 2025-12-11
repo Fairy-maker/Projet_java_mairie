@@ -13,6 +13,7 @@ package equipe;
  * @version 1.0
  */
 
+
 public class Projet {
 	
 	private final String titre;

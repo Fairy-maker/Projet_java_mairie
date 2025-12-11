@@ -13,4 +13,3 @@ public enum Secteur {
     ATTRACTIVITE_ECONOMIQUE,
     ECOLOGIE;
 }
-
