@@ -12,7 +12,7 @@ class ExpertTest {
 
 	@Test
 	void proposerProjetTest() {
-		List<Secteur> secteurs = List.of(Secteur.CULTURE, Secteur.ATTRACTIVITE_ECONOMIQUE);
+		List<Secteur> secteurs = List.of(Secteur.CULTURE);
 		Expert ex = new Expert ("Kayn", "Georges", 24,secteurs,new Random());
 		
 		Projet p = ex.proposerProjet();
