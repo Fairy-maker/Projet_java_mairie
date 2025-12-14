@@ -2,8 +2,8 @@ package solveurGlouton;
 
 import java.util.List;
 
-public interface SacADos {
+public interface SacADosInterface {
 	int getDimension();
 	int[] getBudgets();
-	List<ObjetDansSacADos> getObjets();
+	List<ObjetInterface> getObjets();
 }

@@ -1,6 +1,6 @@
 package solveurGlouton;
 
-public interface ObjetDansSacADos {
+public interface ObjetInterface {
 	int getUtilite();
 	int[] getCouts();
 }

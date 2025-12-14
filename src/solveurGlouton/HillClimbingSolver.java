@@ -1,15 +1,12 @@
 package solveurGlouton;
 
-import jdk.jshell.execution.Util;
-
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class HillClimbingSolver {
 
-    public static List<ObjetDansSacADos> resoudre(SacADos sacADos, List<ObjetDansSacADos> solutionInitiale) throws Exception {
+    public static List<ObjetInterface> resoudre(SacADosInterface sacADos, List<ObjetInterface> solutionInitiale) throws Exception {
 
         int utiliteSolutionInitiale = Utils.utilite(solutionInitiale);
 
@@ -19,8 +16,8 @@ public class HillClimbingSolver {
         }
 
         // On construit la liste des objets non-inclus dans la solution courante.
-        List<ObjetDansSacADos> objetsNonInclus = new ArrayList<>();
-        for (ObjetDansSacADos obj: sacADos.getObjets()) {
+        List<ObjetInterface> objetsNonInclus = new ArrayList<>();
+        for (ObjetInterface obj: sacADos.getObjets()) {
             if (!solutionInitiale.contains(obj)) {
                 objetsNonInclus.add(obj);
             }
@@ -34,12 +31,12 @@ public class HillClimbingSolver {
         // On cherche le voisin qui maximise l'utilite
 
         int utiliteMeilleurVoisin = -1;
-        List<ObjetDansSacADos> meilleurVoisin = new ArrayList<>();
+        List<ObjetInterface> meilleurVoisin = new ArrayList<>();
         for (int index=0; index < solutionInitiale.size(); index++) {
-            List<ObjetDansSacADos> voisinCourant = new ArrayList<>(solutionInitiale);
+            List<ObjetInterface> voisinCourant = new ArrayList<>(solutionInitiale);
             voisinCourant.remove(index);
             int[] sommeDesCoutsDeLaSousListe = Utils.sommeDesCouts(voisinCourant);
-            for (ObjetDansSacADos obj: objetsNonInclus) {
+            for (ObjetInterface obj: objetsNonInclus) {
                 voisinCourant.add(obj);
                 // On verifie que le voisin respecte le budget, sinon il est ecarté
                 int[] somme = Utils.addCoordinates(sommeDesCoutsDeLaSousListe, obj.getCouts());

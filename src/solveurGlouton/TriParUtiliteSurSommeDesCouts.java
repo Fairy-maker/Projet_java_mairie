@@ -3,11 +3,11 @@ package solveurGlouton;
 import java.util.Comparator;
 
 
-public class TriParUtiliteSurSommeDesCouts implements Comparator<ObjetDansSacADos> {
+public class TriParUtiliteSurSommeDesCouts implements Comparator<ObjetInterface> {
 
 
 
-	private int sommeDesCouts(ObjetDansSacADos o) {
+	private int sommeDesCouts(ObjetInterface o) {
 		int somme = 0;
 		for (int c : o.getCouts()) {
 			somme += c;
@@ -16,13 +16,13 @@ public class TriParUtiliteSurSommeDesCouts implements Comparator<ObjetDansSacADo
 	}
 	
 	
-	private double interet(ObjetDansSacADos o) {
+	private double interet(ObjetInterface o) {
 		return ((double) o.getUtilite()) / ((double) sommeDesCouts(o));
 	}
 
 	
 	@Override
-	public int compare(ObjetDansSacADos o1, ObjetDansSacADos o2) {
+	public int compare(ObjetInterface o1, ObjetInterface o2) {
 		double interet1 = interet(o1);
 		double interet2 = interet(o2);
 		if(interet1 < interet2) {

@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class TriParUtiliteSurCout implements Comparator<ObjetDansSacADos> {
+public class TriParUtiliteSurCout implements Comparator<ObjetInterface> {
 
     private final ArrayList<Integer> indicesValeursMax;
 
-    TriParUtiliteSurCout(SacADos sacADos) throws Exception {
+    TriParUtiliteSurCout(SacADosInterface sacADos) throws Exception {
 
         // On calcule la somme des couts de tous les objets du sac a dos
 
         int[] sommeDesCouts = new int[sacADos.getDimension()];
         Arrays.fill(sommeDesCouts, 0);
 
-        for(ObjetDansSacADos objet: sacADos.getObjets()) {
+        for(ObjetInterface objet: sacADos.getObjets()) {
             sommeDesCouts = Utils.addCoordinates(sommeDesCouts, objet.getCouts());
         }
 
@@ -29,7 +29,7 @@ public class TriParUtiliteSurCout implements Comparator<ObjetDansSacADos> {
 
     }
 
-    private int maxDesCouts(ObjetDansSacADos o) {
+    private int maxDesCouts(ObjetInterface o) {
         int maxCourant = 0;
         for (int indice: this.indicesValeursMax) {
             if (maxCourant < o.getCouts()[indice]) {
@@ -39,7 +39,7 @@ public class TriParUtiliteSurCout implements Comparator<ObjetDansSacADos> {
         return maxCourant;
     }
 
-    private double interet(ObjetDansSacADos o) {
+    private double interet(ObjetInterface o) {
         int max = maxDesCouts(o);
         int denominateur;
         if (max == 0) {
@@ -50,7 +50,7 @@ public class TriParUtiliteSurCout implements Comparator<ObjetDansSacADos> {
         return ((double) o.getUtilite()) / ((double) denominateur);
     }
 
-    public int compare(ObjetDansSacADos o1, ObjetDansSacADos o2) {
+    public int compare(ObjetInterface o1, ObjetInterface o2) {
         double interet1 = interet(o1);
         double interet2 = interet(o2);
         if(interet1 < interet2) {

@@ -5,17 +5,17 @@ import java.util.*;
 
 public class GloutonAjoutSolver {
 
-	public static List<ObjetDansSacADos> resoudre(SacADos sacADos) throws Exception {
+	public static List<ObjetInterface> resoudre(SacADosInterface sacADos) throws Exception {
 
         // La variable result est initialement vide. Elle sera retournée à la fin de cette méthode.
         // Elle contiendra tous les objets retenus pour le sac à dos.
-		List<ObjetDansSacADos> result = new ArrayList<>();
+		List<ObjetInterface> result = new ArrayList<>();
 
 		// On trie les objets du sac a dos
 
 		//On recupere tous les objets qui respectent les conditions de notre interface ObjetDansSacADos depuis 
 		// getObjets de notre interface sacADos 
-		List<ObjetDansSacADos> tousLesObjets = new ArrayList<>(sacADos.getObjets()); 
+		List<ObjetInterface> tousLesObjets = new ArrayList<>(sacADos.getObjets());
 
 		// Je définis comparatorByInterest comme le comparateur issus de TriParUtiliteSurSommeDesCouts
         TriParUtiliteSurSommeDesCouts comparatorByInterest = new TriParUtiliteSurSommeDesCouts();
@@ -36,7 +36,7 @@ public class GloutonAjoutSolver {
 		Arrays.fill(conso, 0);
 
 		// On fais une boucle sur tous les objets triés
-		for (ObjetDansSacADos objet : tousLesObjets) {
+		for (ObjetInterface objet : tousLesObjets) {
 
             // On calcule la nouvelle consommation candidate en ajoutant à la
             // consommation courante les couts associés au projet courant.

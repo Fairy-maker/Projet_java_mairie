@@ -6,11 +6,8 @@ import java.util.*;
 
 import org.junit.jupiter.api.Test;
 
-import solveurGlouton.GloutonRetraitSolverTest.Objet;
-import solveurGlouton.GloutonRetraitSolverTest.Sac;
-
 class HillClimbingSolverTest {
-	class Objet implements ObjetDansSacADos {
+	class Objet implements ObjetInterface {
         private int utilite;
         private int[] couts;
 
@@ -30,12 +27,12 @@ class HillClimbingSolverTest {
         }
  
 	}
-	class Sac implements SacADos{
+	class Sac implements SacADosInterface {
 		private int[] budgets;
 		private int dimension;
-		List<ObjetDansSacADos> objets;
+		List<ObjetInterface> objets;
 
-		Sac(int[] budgets, int dimension, List<ObjetDansSacADos> objets){
+		Sac(int[] budgets, int dimension, List<ObjetInterface> objets){
 			this.budgets = budgets;
 			this.objets = objets;
 			this.dimension = dimension;
@@ -51,26 +48,26 @@ class HillClimbingSolverTest {
 				return budgets.clone();
 			}
 			@Override
-			public List<ObjetDansSacADos> getObjets(){
+			public List<ObjetInterface> getObjets(){
 				return objets;
 			}
 		}
 	
 	@Test
 	void resoudreTest() throws Exception {
-		List<ObjetDansSacADos> objets = List.of(
+		List<ObjetInterface> objets = List.of(
 				new Objet(10,new int[]{6}),
 				new Objet(8,new int[]{5}),
 				new Objet(4,new int[]{3})
 				);
 				Sac sac2 = new Sac(new int[]{10}, 1,objets);
 				
-				List<ObjetDansSacADos> solutionInitial = List.of(new Objet(4, new int[] {5})); // mauvaise solution initiale
+				List<ObjetInterface> solutionInitial = List.of(new Objet(4, new int[] {5})); // mauvaise solution initiale
 
-		        List<ObjetDansSacADos> result = HillClimbingSolver.resoudre(sac2, new ArrayList<>(solutionInitial));
+		        List<ObjetInterface> result = HillClimbingSolver.resoudre(sac2, new ArrayList<>(solutionInitial));
 
 		        int utiliteSolutionInitiale = 4;
-		        int utiliteFinale = result.stream().mapToInt(ObjetDansSacADos::getUtilite).sum();
+		        int utiliteFinale = result.stream().mapToInt(ObjetInterface::getUtilite).sum();
 
 		        assertTrue(utiliteFinale >= utiliteSolutionInitiale); //Hill Climbing doit améliorer ou conserver l'utilité
 		    

@@ -74,18 +74,18 @@ public class Utils {
         return indicesOfValue(maxValue, a);
     }
 
-    public static int[] sommeDesCouts(List<ObjetDansSacADos> objets) throws Exception {
+    public static int[] sommeDesCouts(List<ObjetInterface> objets) throws Exception {
         int[] somme = new int[objets.getFirst().getCouts().length];
         Arrays.fill(somme, 0);
-        for (ObjetDansSacADos obj: objets) {
+        for (ObjetInterface obj: objets) {
             somme = Utils.addCoordinates(somme, obj.getCouts());
         }
         return somme;
     }
 
-    public static int utilite(List<ObjetDansSacADos> objets) {
+    public static int utilite(List<ObjetInterface> objets) {
         int utilite = 0;
-        for (ObjetDansSacADos obj: objets) {
+        for (ObjetInterface obj: objets) {
             utilite += obj.getUtilite();
         }
         return utilite;

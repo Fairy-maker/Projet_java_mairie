@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import solveurGlouton.*;
 
 
-public class SacADosImpl implements solveurGlouton.SacADos {
+public class SacADosImpl implements SacADosInterface {
 
     private int[] budgets;
-    private List<ObjetDansSacADos> objets = new ArrayList<>();
+    private List<ObjetInterface> objets = new ArrayList<>();
 
     public SacADosImpl(int[] budgets) {
         this.budgets = budgets.clone(); // on clone le tableau budget pour ne pas etre impacté par une modification ultérieure faite a l'exterieur
@@ -26,17 +26,17 @@ public class SacADosImpl implements solveurGlouton.SacADos {
     }
 
     @Override
-    public List<ObjetDansSacADos> getObjets() { 
+    public List<ObjetInterface> getObjets() {
     	return objets; 
     }
 
-    public void add(ObjetDansSacADos o) { 
+    public void add(ObjetInterface o) {
     	objets.add(o); 
     }
 
     public int getUtiliteTotale() {
         int total = 0;
-        for (ObjetDansSacADos o : objets) total += o.getUtilite();
+        for (ObjetInterface o : objets) total += o.getUtilite();
         return total;
     }
 
@@ -47,11 +47,11 @@ public class SacADosImpl implements solveurGlouton.SacADos {
             case GLOUTON_A_AJOUT:
 
                 // Solveur glouton
-                List<ObjetDansSacADos> solution =
+                List<ObjetInterface> solution =
                         GloutonAjoutSolver.resoudre(this);
 
                 System.out.println("\n------- Solution gloutonne -------\n");
-                for (ObjetDansSacADos o : solution)
+                for (ObjetInterface o : solution)
                     System.out.println(o);
 
                 System.out.println("Utilite totale de la solution est : " +
@@ -65,17 +65,17 @@ public class SacADosImpl implements solveurGlouton.SacADos {
 
             case HILL_CLIMBING:
 
-                List<ObjetDansSacADos> solutionInitiale =
+                List<ObjetInterface> solutionInitiale =
                         GloutonAjoutSolver.resoudre(this);
 
-                List<ObjetDansSacADos> solutionFinale = HillClimbingSolver.resoudre(this, solutionInitiale);
+                List<ObjetInterface> solutionFinale = HillClimbingSolver.resoudre(this, solutionInitiale);
 
                 System.out.println("\n------- Solution hill climbing -------\n");
-                for (ObjetDansSacADos o : solutionFinale)
+                for (ObjetInterface o : solutionFinale)
                     System.out.println(o);
 
                 System.out.println("Utilite totale de la solution est : " +
-                        solutionFinale.stream().mapToInt(ObjetDansSacADos::getUtilite).sum());
+                        solutionFinale.stream().mapToInt(ObjetInterface::getUtilite).sum());
 
                 return;
 

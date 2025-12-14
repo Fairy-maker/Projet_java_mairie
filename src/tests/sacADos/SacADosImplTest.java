@@ -3,11 +3,10 @@ package sacADos;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import solveurGlouton.*;
-import sacADos.SacADosImpl;
 
 class SacADosImplTest {
     // Création d'une classe interne pour pouvoir créer des objets car ObjetDansSacADos est une interface et ne peux donc pas être instancié
-    class Objet implements ObjetDansSacADos {
+    class Objet implements ObjetInterface {
         private int utilite;
         private int[] couts;
 
@@ -31,8 +30,8 @@ class SacADosImplTest {
 	void addObjetTest() {
 		int[] budgets = {10};
 		SacADosImpl sac = new SacADosImpl(budgets);
-		ObjetDansSacADos o1 = new Objet(6, new int[]{5});
-		ObjetDansSacADos o2 = new Objet(7, new int[]{8});
+		ObjetInterface o1 = new Objet(6, new int[]{5});
+		ObjetInterface o2 = new Objet(7, new int[]{8});
 		sac.add(o1);
 		sac.add(o2);
 		

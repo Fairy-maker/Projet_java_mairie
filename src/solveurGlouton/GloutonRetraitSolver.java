@@ -1,17 +1,14 @@
 package solveurGlouton;
 
-import jdk.jshell.execution.Util;
-
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class GloutonRetraitSolver {
 
-    public static List<ObjetDansSacADos> resoudre(SacADos sacADos, Comparator<ObjetDansSacADos> comparator) throws Exception {
+    public static List<ObjetInterface> resoudre(SacADosInterface sacADos, Comparator<ObjetInterface> comparator) throws Exception {
 
         // La variable result contient initialement tous les objets. Elle sera retournée à la fin de cette méthode.
         // Elle contiendra tous les objets retenus pour le sac à dos.
-        List<ObjetDansSacADos> result = new ArrayList<>(sacADos.getObjets());
+        List<ObjetInterface> result = new ArrayList<>(sacADos.getObjets());
 
         // On utilise un comparateur specifique pour trier la liste de l'objet le moins intéressant
         // au plus intéressant.
@@ -24,9 +21,9 @@ public class GloutonRetraitSolver {
         // On calcule la consomation courrante de tous les objets.
         // Tant que une (ou plus) de ces consos est supérieure au budget correspondant
         int[] consoCourante = GloutonRetraitSolver.consoCourante(result);
-        List<ObjetDansSacADos> objetsRetires = new ArrayList<>();
+        List<ObjetInterface> objetsRetires = new ArrayList<>();
         while (!Utils.allSmaller(consoCourante, sacADos.getBudgets())) {
-            ObjetDansSacADos objetRetire = result.removeFirst();
+            ObjetInterface objetRetire = result.removeFirst();
             objetsRetires.add(objetRetire);
             consoCourante = Utils.substractCoordinates(consoCourante, objetRetire.getCouts());
         }
@@ -39,7 +36,7 @@ public class GloutonRetraitSolver {
 
         // On parcourt tous les objets retirés et on insère ceux qu'il est possible
         // de garder.
-        for (ObjetDansSacADos objetCandidat: objetsRetires) {
+        for (ObjetInterface objetCandidat: objetsRetires) {
             int[] consoCandidate = Utils.addCoordinates(consoCourante, objetCandidat.getCouts());
             if (Utils.allSmaller(consoCandidate, sacADos.getBudgets())) {
                 consoCourante = consoCandidate;
@@ -53,13 +50,13 @@ public class GloutonRetraitSolver {
 
 
 
-    private static int[] consoCourante(List<ObjetDansSacADos> objets) throws Exception {
+    private static int[] consoCourante(List<ObjetInterface> objets) throws Exception {
         if (objets.isEmpty()) {
             return new int[0];
         }
         int[] conso = new int[objets.getFirst().getCouts().length];
         Arrays.fill(conso, 0);
-        for (ObjetDansSacADos o: objets) {
+        for (ObjetInterface o: objets) {
             conso = Utils.addCoordinates(conso, o.getCouts());
         }
         return conso;
