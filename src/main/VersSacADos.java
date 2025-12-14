@@ -7,20 +7,22 @@ import solveurGlouton.ObjetInterface;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
 public class VersSacADos {
 
-    private final int[] budgets;
+    final int[] budgets;
     // Couts des projets. Chaque ligne représente les couts d'un projet.
     private final int[][] couts;
     // Benefices (ou utilites) des projets
     private final int[] benefices;
     // Nombre d'objets
-    private final int n;
+    final int n;
     // Nombre de budgets
-    private final int k;
+    final int k;
 
     public VersSacADos(int[] budgets, List<Projet> projets) {
         this.n = projets.size();
@@ -35,9 +37,9 @@ public class VersSacADos {
         }
     }
 
-    public VersSacADos(String mkpFilePath) throws Exception {
+    public VersSacADos(Path mkpFilePath) throws Exception {
 
-        try (BufferedReader br = new BufferedReader(new FileReader(mkpFilePath))) {
+        try (BufferedReader br = Files.newBufferedReader(mkpFilePath)) {
 
             // La premier ligne du fichier contient:
             // le nombre d'objets, le nombre de budgets
