@@ -11,7 +11,6 @@ class EvaluateurTest {
 	@Test
 	void TestEvaluerCoutProjet() {
 		Projet p = new Projet("CULTURE", "Un projet culturel", Secteur.CULTURE);
-		p.getCout();
 
         Evaluateur e = new Evaluateur("Jon", "Snow", 33, TypeEvaluationCout.ECONOMIQUE, new Random());
      
