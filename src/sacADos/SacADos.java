@@ -2,17 +2,17 @@ package sacADos;
 
 import java.util.List;
 
-import java.util.ArrayList;
 import solveurGlouton.*;
 
 
-public class SacADosImpl implements SacADosInterface {
+public class SacADos implements SacADosInterface {
 
-    private int[] budgets;
-    private List<ObjetInterface> objets = new ArrayList<>();
+    private final int[] budgets;
+    private final List<ObjetInterface> objets;
 
-    public SacADosImpl(int[] budgets) {
+    public SacADos(int[] budgets, List<ObjetInterface> objets) {
         this.budgets = budgets.clone(); // on clone le tableau budget pour ne pas etre impacté par une modification ultérieure faite a l'exterieur
+        this.objets = objets;
     }
 
     @Override
@@ -28,10 +28,6 @@ public class SacADosImpl implements SacADosInterface {
     @Override
     public List<ObjetInterface> getObjets() {
     	return objets; 
-    }
-
-    public void add(ObjetInterface o) {
-    	objets.add(o); 
     }
 
     public int getUtiliteTotale() {

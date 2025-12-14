@@ -34,6 +34,14 @@ public class Cout {
         this.coutEnv = -1;
     }
 
+    public int[] toArray() {
+        int[] couts = new int[3];
+        couts[0] = this.coutEco;
+        couts[1] = this.coutSocio;
+        couts[2] = this.coutEnv;
+        return couts;
+    }
+
 	/**
 	 * permet d'accéder au coût économque qui était en private
 	 * @return le coût économique 

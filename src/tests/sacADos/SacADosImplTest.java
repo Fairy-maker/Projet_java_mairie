@@ -29,7 +29,7 @@ class SacADosImplTest {
 	@Test
 	void addObjetTest() {
 		int[] budgets = {10};
-		SacADosImpl sac = new SacADosImpl(budgets);
+		SacADos sac = new SacADos(budgets);
 		ObjetInterface o1 = new Objet(6, new int[]{5});
 		ObjetInterface o2 = new Objet(7, new int[]{8});
 		sac.add(o1);

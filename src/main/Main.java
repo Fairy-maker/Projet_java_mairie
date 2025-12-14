@@ -12,7 +12,7 @@ import equipe.TypeEvaluationCout;
 import equipe.EquipeMunicipale;
 import equipe.Projet;
 import sacADos.MethodeDeResolution;
-import sacADos.SacADosImpl;
+import sacADos.SacADos;
 
 public class Main {
 	//technique reprises du TP4 + certains prénoms et noms sont inspiré du TP 3 et TP 4
@@ -52,11 +52,8 @@ public class Main {
 
 		// Sac à dos
         int[] budgets = new int[]{ 30000, 2000, 1000 };
-        SacADosImpl sac = new SacADosImpl(budgets);
-        for (Projet p : equipeMunicipale.getProjetsEtudies()) {
-            ProjetDansSacADos pd = new ProjetDansSacADos(p);
-            sac.add(pd);
-        }
+        VersSacADos versSacADos = new VersSacADos(budgets, equipeMunicipale.getProjetsEtudies());
+        SacADos sac = versSacADos.genererSacADos();
 
         sac.resoudre(MethodeDeResolution.HILL_CLIMBING);
 
