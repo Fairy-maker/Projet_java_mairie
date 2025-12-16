@@ -2,6 +2,8 @@ package sacADos;
 
 import solveurGlouton.ObjetInterface;
 
+import java.util.Arrays;
+
 public class Objet implements ObjetInterface {
 
     private int utilite;
@@ -20,5 +22,13 @@ public class Objet implements ObjetInterface {
     @Override
     public int[] getCouts() {
         return couts;
+    }
+
+    @Override
+    public String toString() {
+        return "Objet{" +
+                "utilite=" + utilite +
+                ", couts=" + Arrays.toString(couts) +
+                '}';
     }
 }
