@@ -14,9 +14,9 @@ public class GloutonAjoutSolver {
      * Resout le problème avec la méthode gloutonne par ajout
      * @param sacADos un sac à dos respectant les contraintes de mon interface SacADosInterface
      * @return result, la liste de tous les objets conservés pour mon sac à dos.
-     * @throws Exception dans le cas où addCoordinates ou allSmaller renvoie une erreur.
+     * @throws IllegalArgumentException dans le cas où addCoordinates ou allSmaller renvoie une erreur.
      */
-	public static List<ObjetInterface> resoudre(SacADosInterface sacADos) throws Exception {
+	public static List<ObjetInterface> resoudre(SacADosInterface sacADos) throws IllegalArgumentException {
 
         /*
          La variable result est initialement vide. Elle sera retournée à la fin de cette méthode.
