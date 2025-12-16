@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Essaye d'améliorer une solution initiale en explorant ses voisins. Si un voisin est en effet
+ * Essaie d'améliorer une solution initiale en explorant ses voisins. Si un voisin est en effet
  * une meilleure solution, alors il devient la nouvelle solution courante et la méthode continue
  * jusqu'à ne pas trouver de voisins meilleurs.
  * Pour définir un voisin, nous allons retirer un objet de notre solution initiale et le remplacer par un autre.
@@ -15,6 +15,28 @@ import java.util.List;
  */
 public class HillClimbingSolver {
 
+    public static List<ObjetInterface> resoudre(SacADosInterface sacADos, List<List<ObjetInterface>> solutionsInitiales) throws Exception {
+
+        // On applique la méthode Hill Climbing "classique" pour chaque solution initale
+        // et on stocke le résultat dans une liste.
+        List<List<ObjetInterface>> solutions = new ArrayList<>();
+        for (List<ObjetInterface> solutionInitiale: solutionsInitiales) {
+            List<ObjetInterface> solution = fonctionHillClimbing(sacADos, solutionInitiale);
+            solutions.add(solution);
+        }
+
+        // On ne garde que la meilleure des solutions
+        List<ObjetInterface> meilleureSolution = solutions.getFirst();
+        for (List<ObjetInterface> solutionCourante: solutions) {
+            if (Utils.utilite(meilleureSolution) < Utils.utilite(solutionCourante)) {
+                meilleureSolution = solutionCourante;
+            }
+        }
+
+        return meilleureSolution;
+
+    }
+
     /**
      * résout le problème de sac à dos multidimensionnel avec la méthode du HillClimbing
      * @param sacADos un sac à dos respectant les contraintes de mon interface SacADosInterface
@@ -23,7 +45,7 @@ public class HillClimbingSolver {
      * @return renvoie la meilleure solution (un voisin ou la solution initiale)
      * @throws Exception dans le cas où la liste de notre solution initiale est vide.
      */
-    public static List<ObjetInterface> resoudre(SacADosInterface sacADos, List<ObjetInterface> solutionInitiale) throws Exception {
+    private static List<ObjetInterface> fonctionHillClimbing(SacADosInterface sacADos, List<ObjetInterface> solutionInitiale) throws Exception {
 
         /*
          On calcule l'utilité de notre solution initiale. L'objectif va être
@@ -99,7 +121,7 @@ public class HillClimbingSolver {
         if (utiliteMeilleurVoisin <= utiliteSolutionInitiale) {
             return solutionInitiale;
         } else {
-            return resoudre(sacADos, meilleurVoisin);
+            return fonctionHillClimbing(sacADos, meilleurVoisin);
         }
 
     }

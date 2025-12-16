@@ -55,7 +55,7 @@ public class Main {
         VersSacADos versSacADos = new VersSacADos(budgets, equipeMunicipale.getProjetsEtudies());
         SacADos sac = versSacADos.genererSacADos();
 
-        sac.resoudre(MethodeDeResolution.HILL_CLIMBING);
+        sac.resoudre(MethodeDeResolution.GLOUTON_A_RETRAIT);
 
     }
 }

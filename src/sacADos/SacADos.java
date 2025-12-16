@@ -1,5 +1,6 @@
 package sacADos;
 
+import java.util.Arrays;
 import java.util.List;
 
 import solveurGlouton.*;
@@ -56,24 +57,56 @@ public class SacADos implements SacADosInterface {
                 return;
 
             case GLOUTON_A_RETRAIT:
-                // TODO/A coder
-                return;
 
-            case HILL_CLIMBING:
+                // Solveur glouton
+                List<ObjetInterface> solutionRetrait =
+                        GloutonRetraitSolver.resoudre(this);
 
-                List<ObjetInterface> solutionInitiale =
-                        GloutonAjoutSolver.resoudre(this);
-
-                List<ObjetInterface> solutionFinale = HillClimbingSolver.resoudre(this, solutionInitiale);
-
-                System.out.println("\n------- Solution hill climbing -------\n");
-                for (ObjetInterface o : solutionFinale)
+                System.out.println("\n------- Solution gloutonne a retrait -------\n");
+                for (ObjetInterface o : solutionRetrait)
                     System.out.println(o);
 
                 System.out.println("Utilite totale de la solution est : " +
-                        solutionFinale.stream().mapToInt(ObjetInterface::getUtilite).sum());
+                        Utils.utilite(solutionRetrait));
 
                 return;
+
+            case HILL_CLIMBING_SIMPLE:
+
+                List<ObjetInterface> solutionInitiale =
+                        GloutonRetraitSolver.resoudre(this);
+
+                List<ObjetInterface> solutionFinale1 = HillClimbingSolver.resoudre(this,  Arrays.asList(solutionInitiale));
+
+                System.out.println("\n------- Solution hill climbing -------\n");
+                for (ObjetInterface o : solutionFinale1)
+                    System.out.println(o);
+
+                System.out.println("Utilite totale de la solution est : " +
+                        solutionFinale1.stream().mapToInt(ObjetInterface::getUtilite).sum());
+
+                return;
+
+            case HILL_CLIMBING_MULTIPLE:
+
+                List<ObjetInterface> solutionInitiale1 =
+                        GloutonAjoutSolver.resoudre(this);
+
+                List<ObjetInterface> solutionInitiale2 =
+                        GloutonRetraitSolver.resoudre(this);
+
+                List<List<ObjetInterface>> solutionsInitiales = Arrays.asList(solutionInitiale1, solutionInitiale2);
+                List<ObjetInterface> solutionFinale2 = HillClimbingSolver.resoudre(this,  solutionsInitiales);
+
+                System.out.println("\n------- Solution hill climbing -------\n");
+                for (ObjetInterface o : solutionFinale2)
+                    System.out.println(o);
+
+                System.out.println("Utilite totale de la solution est : " +
+                        solutionFinale2.stream().mapToInt(ObjetInterface::getUtilite).sum());
+
+                return;
+
 
         }
 
