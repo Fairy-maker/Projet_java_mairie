@@ -3,6 +3,7 @@ package solveurGlouton;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -71,7 +72,7 @@ class HillClimbingSolverTest {
 
 	    try {
 	        List<ObjetInterface> result =
-	            HillClimbingSolver.resoudre(sac2, new ArrayList<>(solutionInitial));
+	            HillClimbingSolver.resoudre(sac2, Arrays.asList(solutionInitial));
 
 	        int utiliteInitiale = solutionInitial.stream().mapToInt(ObjetInterface::getUtilite).sum();
 

@@ -64,7 +64,7 @@ class GloutonRetraitSolverTest {
 			);
 			Sac sac1 = new Sac(new int[]{10}, 1,objets); // sac ayant une dimension de 6, un tableau de budgets de 7 et nos objets
 			
-			List<ObjetInterface> result = GloutonRetraitSolver.resoudre(sac1, Comparator.comparingInt(ObjetInterface::getUtilite).reversed());
+			List<ObjetInterface> result = GloutonRetraitSolver.resoudre(sac1);
 
 	        // Calcul du coût total :
 	        int coutTotal = result.stream().mapToInt(o -> o.getCouts()[0]).sum();
