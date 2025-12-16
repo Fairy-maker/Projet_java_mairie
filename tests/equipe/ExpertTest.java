@@ -1,6 +1,9 @@
 package equipe;
 
 import static org.junit.jupiter.api.Assertions.*;
+import equipe.Expert;
+import equipe.Secteur;
+import equipe.Projet;
 
 
 import org.junit.jupiter.api.Test;

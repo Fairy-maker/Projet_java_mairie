@@ -7,7 +7,7 @@ public class Objet implements ObjetInterface {
     private int utilite;
     private  int[] couts;
 
-    public Objet(int[] couts, int utilite) {
+    public Objet(int utilite, int[] couts) {
         this.couts = couts;
         this.utilite = utilite;
     }

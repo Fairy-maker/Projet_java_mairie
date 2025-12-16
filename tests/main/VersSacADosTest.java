@@ -1,17 +1,14 @@
 package main;
 
-import org.junit.jupiter.api.Test;
-import sacADos.SacADos;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.io.File;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 class VersSacADosTest {
 
@@ -19,6 +16,8 @@ class VersSacADosTest {
     void lectureFichierMKPTest() throws Exception {
 
         URL mkpFileURL = getClass().getResource("/All-MKP-Instances/chubeas/OR5x100/OR5x100-0.25_1.dat");
+        assertNotNull(mkpFileURL, "Fichier MKP introuvable dans resources");
+        
         Path mkpFilePath = Paths.get(mkpFileURL.toURI());
 
         VersSacADos versSacADos = new VersSacADos(mkpFilePath);

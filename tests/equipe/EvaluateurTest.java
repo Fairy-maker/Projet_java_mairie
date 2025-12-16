@@ -2,6 +2,11 @@ package equipe;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+import equipe.Secteur;
+import equipe.TypeEvaluationCout;
+import equipe.Evaluateur;
+import equipe.Projet;
 import java.util.Random;
 
 import org.junit.jupiter.api.Test;

@@ -75,6 +75,7 @@ public class Utils {
     }
 
     public static int[] sommeDesCouts(List<ObjetInterface> objets) throws Exception {
+    	
         int[] somme = new int[objets.getFirst().getCouts().length];
         Arrays.fill(somme, 0);
         for (ObjetInterface obj: objets) {

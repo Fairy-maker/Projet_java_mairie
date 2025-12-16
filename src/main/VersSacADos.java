@@ -95,7 +95,7 @@ public class VersSacADos {
         List<ObjetInterface> objets = new ArrayList<>();
 
         for (int i=0; i<this.n; i++) {
-            Objet objet = new Objet(this.couts[i], this.benefices[i]);
+            Objet objet = new Objet(this.benefices[i], this.couts[i]);
             objets.add(objet);
         }
 
