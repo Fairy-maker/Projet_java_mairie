@@ -11,7 +11,8 @@ import org.junit.jupiter.api.Test;
 
 
 class HillClimbingSolverTest {
-	class Objet implements ObjetInterface {
+
+    class Objet implements ObjetInterface {
         private int utilite;
         private int[] couts;
 
@@ -29,61 +30,63 @@ class HillClimbingSolverTest {
         public int[] getCouts() {
             return couts;
         }
- 
-	}
-	class Sac implements SacADosInterface{
-		private int[] budgets;
-		private int dimension;
-		List<ObjetInterface> objets;
 
-		Sac(int[] budgets, int dimension, List<ObjetInterface> objets){
-			this.budgets = budgets;
-			this.objets = objets;
-			this.dimension = dimension;
-			}
+    }
 
-			@Override
-			public int getDimension() {
-				return dimension;
-			}
+    class Sac implements SacADosInterface {
+        private int[] budgets;
+        private int dimension;
+        List<ObjetInterface> objets;
 
-			@Override
-			public int[] getBudgets() {
-				return budgets.clone();
-			}
-			@Override
-			public List<ObjetInterface> getObjets(){
-				return objets;
-			}
-		}
-	
-	@Test
-	void resoudreTest() throws Exception {
-	    List<ObjetInterface> objets = List.of(
-	        new Objet(10, new int[]{6}),
-	        new Objet(8,  new int[]{5}),
-	        new Objet(4,  new int[]{3})
-	    );
+        Sac(int[] budgets, int dimension, List<ObjetInterface> objets) {
+            this.budgets = budgets;
+            this.objets = objets;
+            this.dimension = dimension;
+        }
 
-	    Sac sac2 = new Sac(new int[]{10}, 1, objets);
+        @Override
+        public int getDimension() {
+            return dimension;
+        }
 
-	    List<ObjetInterface> solutionInitial = new ArrayList<>();
-	    solutionInitial.add(objets.get(0)); // solution valide non vide
+        @Override
+        public int[] getBudgets() {
+            return budgets.clone();
+        }
 
-	    try {
-	        List<ObjetInterface> result =
-	            HillClimbingSolver.resoudre(sac2, Arrays.asList(solutionInitial));
+        @Override
+        public List<ObjetInterface> getObjets() {
+            return objets;
+        }
+    }
 
-	        int utiliteInitiale = solutionInitial.stream().mapToInt(ObjetInterface::getUtilite).sum();
+    @Test
+    void resoudreTest() throws Exception {
+        List<ObjetInterface> objets = List.of(
+                new Objet(10, new int[]{6}),
+                new Objet(8, new int[]{5}),
+                new Objet(4, new int[]{3})
+        );
 
-	        int utiliteFinale = result.stream().mapToInt(ObjetInterface::getUtilite).sum();
+        Sac sac2 = new Sac(new int[]{10}, 1, objets);
 
-	        assertTrue(utiliteFinale >= utiliteInitiale);
+        List<ObjetInterface> solutionInitial = new ArrayList<>();
+        solutionInitial.add(objets.get(0)); // solution valide non vide
 
-	    } catch (NoSuchElementException e) {
-	        // Le solver ne gère pas les solutions vides → comportement accepté
-	        assertTrue(true);
-	    }
-	}
+        try {
+            List<ObjetInterface> result =
+                    HillClimbingSolver.resoudre(sac2, Arrays.asList(solutionInitial));
+
+            int utiliteInitiale = solutionInitial.stream().mapToInt(ObjetInterface::getUtilite).sum();
+
+            int utiliteFinale = result.stream().mapToInt(ObjetInterface::getUtilite).sum();
+
+            assertTrue(utiliteFinale >= utiliteInitiale);
+
+        } catch (NoSuchElementException e) {
+            // Le solver ne gère pas les solutions vides → comportement accepté
+            assertTrue(true);
+        }
+    }
 
 }

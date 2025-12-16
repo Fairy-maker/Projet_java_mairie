@@ -9,7 +9,8 @@ import org.junit.jupiter.api.Test;
 
 
 class GloutonRetraitSolverTest {
-	class Objet implements ObjetInterface {
+
+    class Objet implements ObjetInterface {
         private int utilite;
         private int[] couts;
 
@@ -27,55 +28,57 @@ class GloutonRetraitSolverTest {
         public int[] getCouts() {
             return couts;
         }
- 
-	}
-	class Sac implements SacADosInterface {
-		private int[] budgets;
-		private int dimension;
-		List<ObjetInterface> objets;
 
-		Sac(int[] budgets, int dimension, List<ObjetInterface> objets){
-			this.budgets = budgets;
-			this.objets = objets;
-			this.dimension = dimension;
-			}
+    }
 
-			@Override
-			public int getDimension() {
-				return dimension;
-			}
+    class Sac implements SacADosInterface {
+        private int[] budgets;
+        private int dimension;
+        List<ObjetInterface> objets;
 
-			@Override
-			public int[] getBudgets() {
-				return budgets.clone();
-			}
-			@Override
-			public List<ObjetInterface> getObjets(){
-				return objets;
-			}
-		}
+        Sac(int[] budgets, int dimension, List<ObjetInterface> objets) {
+            this.budgets = budgets;
+            this.objets = objets;
+            this.dimension = dimension;
+        }
 
-		@Test
-		void resoudreTest() throws Exception  {
-			List<ObjetInterface> objets = List.of(
-			new Objet(10,new int[]{6}),
-			new Objet(8,new int[]{5}),
-			new Objet(4,new int[]{3})
-			);
-			Sac sac1 = new Sac(new int[]{10}, 1,objets); // sac ayant une dimension de 6, un tableau de budgets de 7 et nos objets
-			
-			List<ObjetInterface> result = GloutonRetraitSolver.resoudre(sac1);
+        @Override
+        public int getDimension() {
+            return dimension;
+        }
 
-	        // Calcul du coût total :
-	        int coutTotal = result.stream().mapToInt(o -> o.getCouts()[0]).sum();
+        @Override
+        public int[] getBudgets() {
+            return budgets.clone();
+        }
 
-	        assertTrue(coutTotal <= 10); // Faux si le coût dépasse la capacité de notre sac
+        @Override
+        public List<ObjetInterface> getObjets() {
+            return objets;
+        }
+    }
 
-	        // Vérifie qu'au moins un objet utile est choisi
-	        int utiliteTotale = result.stream().mapToInt(ObjetInterface::getUtilite).sum();
+    @Test
+    void resoudreTest() throws Exception {
+        List<ObjetInterface> objets = List.of(
+                new Objet(10, new int[]{6}),
+                new Objet(8, new int[]{5}),
+                new Objet(4, new int[]{3})
+        );
+        Sac sac1 = new Sac(new int[]{10}, 1, objets); // sac ayant une dimension de 6, un tableau de budgets de 7 et nos objets
 
-	        assertTrue(utiliteTotale >= 8); // car la solution doit conserver les objets les plus utiles
-	    }
+        List<ObjetInterface> result = GloutonRetraitSolver.resoudre(sac1);
 
-		
-	}
+        // Calcul du coût total :
+        int coutTotal = result.stream().mapToInt(o -> o.getCouts()[0]).sum();
+
+        assertTrue(coutTotal <= 10); // Faux si le coût dépasse la capacité de notre sac
+
+        // Vérifie qu'au moins un objet utile est choisi
+        int utiliteTotale = result.stream().mapToInt(ObjetInterface::getUtilite).sum();
+
+        assertTrue(utiliteTotale >= 8); // car la solution doit conserver les objets les plus utiles
+    }
+
+
+}
