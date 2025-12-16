@@ -11,7 +11,6 @@ package equipe;
  * Les coûts sont initialisés à -1 pour dire qu'ils ne sont pas encore connus.
  * </p>
  * @author feryel benameur
- * @version 1.0
  */
 public class Cout {
 
