@@ -1,5 +1,6 @@
 package sacADos;
 
+import java.rmi.UnexpectedException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,17 +19,17 @@ public class SacADos implements SacADosInterface {
 
     @Override
     public int getDimension() {
-    	return this.budgets.length;
+        return this.budgets.length;
     }
 
     @Override
-    public int[] getBudgets() { 
-    	return budgets.clone(); 
+    public int[] getBudgets() {
+        return budgets.clone();
     }
 
     @Override
     public List<ObjetInterface> getObjets() {
-    	return objets; 
+        return objets;
     }
 
     public int getUtiliteTotale() {
@@ -37,55 +38,24 @@ public class SacADos implements SacADosInterface {
         return total;
     }
 
-    public void resoudre(MethodeDeResolution methodeDeResolution) throws Exception {
+    public List<ObjetInterface> resoudre(MethodeDeResolution methodeDeResolution) throws Exception {
 
         switch (methodeDeResolution) {
 
             case GLOUTON_A_AJOUT:
 
-                // Solveur glouton
-                List<ObjetInterface> solution =
-                        GloutonAjoutSolver.resoudre(this);
-
-                System.out.println("\n------- Solution gloutonne -------\n");
-                for (ObjetInterface o : solution)
-                    System.out.println(o);
-
-                System.out.println("Utilite totale de la solution est : " +
-                        Utils.utilite(solution));
-
-                return;
+                return GloutonAjoutSolver.resoudre(this);
 
             case GLOUTON_A_RETRAIT:
 
-                // Solveur glouton
-                List<ObjetInterface> solutionRetrait =
-                        GloutonRetraitSolver.resoudre(this);
-
-                System.out.println("\n------- Solution gloutonne a retrait -------\n");
-                for (ObjetInterface o : solutionRetrait)
-                    System.out.println(o);
-
-                System.out.println("Utilite totale de la solution est : " +
-                        Utils.utilite(solutionRetrait));
-
-                return;
+                return GloutonRetraitSolver.resoudre(this);
 
             case HILL_CLIMBING_SIMPLE:
 
                 List<ObjetInterface> solutionInitiale =
                         GloutonRetraitSolver.resoudre(this);
 
-                List<ObjetInterface> solutionFinale1 = HillClimbingSolver.resoudre(this,  Arrays.asList(solutionInitiale));
-
-                System.out.println("\n------- Solution hill climbing -------\n");
-                for (ObjetInterface o : solutionFinale1)
-                    System.out.println(o);
-
-                System.out.println("Utilite totale de la solution est : " +
-                        solutionFinale1.stream().mapToInt(ObjetInterface::getUtilite).sum());
-
-                return;
+                return HillClimbingSolver.resoudre(this, Arrays.asList(solutionInitiale));
 
             case HILL_CLIMBING_MULTIPLE:
 
@@ -96,20 +66,12 @@ public class SacADos implements SacADosInterface {
                         GloutonRetraitSolver.resoudre(this);
 
                 List<List<ObjetInterface>> solutionsInitiales = Arrays.asList(solutionInitiale1, solutionInitiale2);
-                List<ObjetInterface> solutionFinale2 = HillClimbingSolver.resoudre(this,  solutionsInitiales);
 
-                System.out.println("\n------- Solution hill climbing -------\n");
-                for (ObjetInterface o : solutionFinale2)
-                    System.out.println(o);
-
-                System.out.println("Utilite totale de la solution est : " +
-                        solutionFinale2.stream().mapToInt(ObjetInterface::getUtilite).sum());
-
-                return;
-
+                return HillClimbingSolver.resoudre(this, solutionsInitiales);
 
         }
 
+        throw new UnexpectedException("La cas n'est pas connu");
 
     }
 

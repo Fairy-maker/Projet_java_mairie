@@ -13,6 +13,8 @@ import equipe.EquipeMunicipale;
 import equipe.Projet;
 import sacADos.MethodeDeResolution;
 import sacADos.SacADos;
+import solveurGlouton.ObjetInterface;
+import solveurGlouton.Utils;
 
 public class Main {
 	//technique reprises du TP4 + certains prénoms et noms sont inspiré du TP 3 et TP 4
@@ -55,7 +57,14 @@ public class Main {
         VersSacADos versSacADos = new VersSacADos(budgets, equipeMunicipale.getProjetsEtudies());
         SacADos sac = versSacADos.genererSacADos();
 
-        sac.resoudre(MethodeDeResolution.GLOUTON_A_RETRAIT);
+        List<ObjetInterface> solution = sac.resoudre(MethodeDeResolution.GLOUTON_A_RETRAIT);
+
+        System.out.println("\n------- Solution -------\n");
+        for (ObjetInterface o : solution)
+            System.out.println(o);
+
+        System.out.println("Utilite totale de la solution est : " +
+                Utils.utilite(solution));
 
     }
 }
