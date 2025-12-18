@@ -2,7 +2,7 @@ package equipe;
 
 /**
  * Représente les personnes de l'équipe municipale
- * @author feryelbenameur
+ * @author feryel benameur
  * @version 1.0
  */
 

@@ -8,6 +8,7 @@ import java.util.*;
  * les plus importants un par un dans notre liste, tant que les contraintes
  * de budgets sont respectées.
  * @author clara baigneres
+ * @version 2.0
  */
 public class GloutonAjoutSolver {
     /**

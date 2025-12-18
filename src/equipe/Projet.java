@@ -1,7 +1,7 @@
 package equipe;
 
 /**
- * Répresente les projets qui sont définits par :
+ * Répresente les projets qui sont définit par :
  * <ul>
  * <li> un titre, </li>
  * <li> une description, </li>
@@ -9,7 +9,7 @@ package equipe;
  * <li> un coût, </li>
  * <li> un bénéfice </li>
  * </ul>
- * @author feryelbenameur
+ * @author feryel benameur
  * @version 1.0
  */
 
@@ -30,6 +30,10 @@ public class Projet {
 		return benefice;
 	}
 
+	/** 
+	 * permet de définir le bénéfice
+	 * @param benefice nouvelle valeur du bénéfice
+	 */
     public void setBenefice(int benefice) {
         this.benefice = benefice;
     }
@@ -38,9 +42,9 @@ public class Projet {
    * Constructeur qui nous permet de construire un projet
    * @param titre titre du projet
    * @param description description du projet
-   * @param secteur secteurs dans lequel est rattaché le projet (le projet peut être rattaché à plusieurs secteurs)
+   * @param secteur secteur dans lequel est rattaché le projet (le projet peut être rattaché à plusieurs secteurs)
    * <p>
-   * De plus, ce constructeur nous donne un cout pour le projet
+   * De plus, ce constructeur nous donne un coût pour le projet.
    * </p>
    */
 	public Projet(String titre, String description, Secteur secteur) {

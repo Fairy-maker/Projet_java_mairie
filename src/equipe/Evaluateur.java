@@ -21,21 +21,21 @@ public class Evaluateur extends Personne {
 	 * @param random random nous permet de générer le processus stochastique
 	 */
 	
-	public Evaluateur(String nom, String prenom, int age, TypeEvaluationCout type, Random random) { // Notre constructeur
+	public Evaluateur(String nom, String prenom, int age, TypeEvaluationCout type, Random random) {
 		super(nom, prenom, age);
 		this.type = type;
 		this.random = random;
 	}    
 
 	/**
-	 * Méthode qui permet aux évaluateur d'évaluer le coûts en fonction du type auxquelles ils sont "spécialisés".
-	 * Un évaluateur économique va évaluer le coût économique
-	 * Un évaluateur social va évaluer le coût social
-	 * Un évaluateur environnemental va évaluer le coût environnemental
+	 * Méthode qui permet aux évaluateur d'évaluer le coût en fonction du type auxquels ils sont "spécialisés".
+	 * Un évaluateur économique va évaluer le coût économique,
+	 * Un évaluateur social va évaluer le coût social,
+	 * Un évaluateur environnemental va évaluer le coût environnemental.
 	 * @param p est un projet p
 	 */
 	public void evaluerCoutProjet(Projet p) {
-		// si l'évaluateur est type économique il évalue le premier bloc,
+		// si l'évaluateur est  de type économique il évalue le premier bloc,
 		// s'il est de type social il évalue le deuxième etc..
 		switch (this.type) {
 		

@@ -10,6 +10,7 @@ import java.util.Comparator;
  * le max des ses couts
  *
  * @author clara baigneres
+ * @version 1.0
  */
 public class TriParUtiliteSurCout implements Comparator<ObjetInterface> {
 

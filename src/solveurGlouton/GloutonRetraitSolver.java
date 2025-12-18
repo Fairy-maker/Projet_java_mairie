@@ -11,6 +11,7 @@ import java.util.*;
  * tout en respectant les budgets.
  *
  * @author clara baigneres
+ * @version 1.0
  */
 public class GloutonRetraitSolver {
 

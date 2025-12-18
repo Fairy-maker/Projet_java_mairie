@@ -3,14 +3,15 @@ package equipe;
 /**
  * Représente un ensemble de cout associés à un projet :
  * <ul>
- * <li> cout économique </li>
- * <li> cout social </li>
- * <li> cout environnemental</li>
+ * <li> cout économique, </li>
+ * <li> cout social, </li>
+ * <li> et cout environnemental</li>
  * </ul>
  * <p>
  * Les coûts sont initialisés à -1 pour dire qu'ils ne sont pas encore connus.
  * </p>
  * @author feryel benameur
+ * @version 1.0
  */
 public class Cout {
 
@@ -32,6 +33,17 @@ public class Cout {
         this.coutSocio = -1;
         this.coutEnv = -1;
     }
+	
+	/**
+	 * Transforme les coûts économique, social et environnemental en un tableau. On a :
+	 * <ul>
+	 * <li> A l'indice 0 : le coût économique,</li>
+	 * <li> A l'indice 1 : le cout social </li>
+	 * <li> A l'indice 2 : le cout environnemental </li>
+	 * </ul>
+	 * 
+	 * @return le tableau contenant les trois coûts
+	 */
 
     public int[] toArray() {
         int[] couts = new int[3];
@@ -42,7 +54,7 @@ public class Cout {
     }
 
 	/**
-	 * permet d'accéder au coût économque qui était en private
+	 * permet d'accéder au coût économique qui est en private
 	 * @return le coût économique 
 	 */
 	public int getCoutEco() {

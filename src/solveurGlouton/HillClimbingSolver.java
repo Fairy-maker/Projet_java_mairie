@@ -12,6 +12,7 @@ import java.util.List;
  * Deux solutions S et S' sont donc voisines si S' est égale à S à un objet près.
  *
  * @author clara baigneres
+ * @version 1.0
  */
 public class HillClimbingSolver {
 

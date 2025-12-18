@@ -47,7 +47,7 @@ public class Main {
 		System.out.println("-------- Simulation des Projets --------\n");
 		equipeMunicipale.executerUnCycleDeSimulation();
 		
-		System.out.println("\n-------- Voici les projets retenus : -------- \n");
+		System.out.println("\n-------- Voici le récaputilatif des projets : -------- \n");
 		for (Projet p : equipeMunicipale.getProjetsEtudies()) {
 			System.out.println(p);
 		}

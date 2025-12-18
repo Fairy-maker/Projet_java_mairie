@@ -8,6 +8,7 @@ import java.util.Comparator;
  * par la somme des ses couts
  *
  * @author clara baigneres
+ * @version 1.0
  */
 
 public class TriParUtiliteSurSommeDesCouts implements Comparator<ObjetInterface> {

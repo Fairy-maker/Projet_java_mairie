@@ -4,10 +4,12 @@ import java.util.*;
 /**
  * Représente une équipe municipale composé de :
  * <ul>
- * <li> un elu qui évalue le bénéfice d'un projet </li>
- * <li> trois évaluateurs (un économique, un social et un environnemental) qui évalue le coût du projet </li>
- * <li> une liste d'expert spécialisé dans des secteurs particuliers et qui proposent des projets </li>
+ * <li> un élu qui évalue le bénéfice d'un projet, </li>
+ * <li> trois évaluateurs (un économique, un social et un environnemental) qui évaluent le coût du projet, </li>
+ * <li> une liste d'expert spécialisés dans des secteurs particuliers et qui proposent des projets. </li>
  *</ul>
+ *@author feryel benameur
+ *@version 1.0
  */
 
 public class EquipeMunicipale {
@@ -27,8 +29,6 @@ public class EquipeMunicipale {
      * @param evaluateurSocio l'évaluateur social chargé d'évaluer le coût social du projet
      * @param evaluateurEnv l'évaluateur environnemental chargé d'évaluer le coût environnemental du projet
      * @param experts la liste d'expert spécialisé dans des secteurs particulier et qui sont chargé de proposer des projets
-     *
-     * @author feryel benameur
      */
 	public EquipeMunicipale(Elu elu, Evaluateur evaluateurEco, Evaluateur evaluateurSocio, Evaluateur evaluateurEnv, List <Expert> experts) {
 		this.elu = elu;
@@ -39,22 +39,23 @@ public class EquipeMunicipale {
 	}
 
     /**
-     * Retourne la liste des projets étudiés.
+     * Méthode qui retourne la liste des projets étudiés.
      * @return La liste des projets étudiés.
      */
     public List<Projet> getProjetsEtudies() {
         return projetsEtudies;
     }
+    
     /**
 	 * Exécute un cycle de simulation des projets 
 	 * <p>
-	 * Si la liste des projets ) évaluer est vide alors la méthode demande à chaque experts de proposer un projet,
+	 * Si la liste des projets à évaluer est vide alors la méthode demande à chaque experts de proposer un projet,
 	 * en fait évaluer les coûts par nos évaluateurs,
 	 * fait estimer le bénéfice par l'élu et enfin,
 	 * ajoute le projet à la liste des projets étudiés.
 	 * </p>
 	 * <p>
-	 * Si des projets ont été étudiés, la méthode ne fait rien
+	 * Si des projets ont déjà été étudiés, la méthode ne fait rien.
 	 * </p>
 	 */
 	public void executerUnCycleDeSimulation() {

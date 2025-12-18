@@ -9,12 +9,12 @@ import java.util.*;
  */
 public class Expert extends Personne {
 	
-	// Chaque expert est spécialisé dans une liste de secteurs que l'on a definit dans notre énumération secteur
+	
 	private final List<Secteur> secteurs;
-	private final Random random;  //pour faire le processus stochastique
+	private final Random random;  
 
     /**
-     * Constructeur qui nous permet de définir un expert
+     * Constructeur qui nous permet de construire un expert
      * @param nom nom de l'expert
      * @param prenom prénom de l'expert
      * @param age âge de l'expert
@@ -30,7 +30,7 @@ public class Expert extends Personne {
 	
     /**
      * Méthode qui permet aux experts de créer/ proposer des projets en fonction des secteurs dans lesquels ils sont "spécialisé".
-     * L'expert est spécialisé dans un secteur aléatoire parmi ceux proposé dans l'énumération secteur
+     * L'expert est spécialisé dans un secteur aléatoire parmi ceux proposé dans l'énumération secteur.
      * L'expert va proposer un projet qui détient :
      * <ul>
      * <li> un titre,</li>

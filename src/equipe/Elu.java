@@ -3,7 +3,7 @@ package equipe;
 import java.util.*;
 
 /**
- * Un élu est une personne faisant partie de l'équipe muncipale qui estime le bénéfice 
+ * Un élu est une personne faisant partie de l'équipe muncipale qui estime le bénéfice.
  * @author feryel benameur
  * @version 1.0
  */
@@ -12,7 +12,7 @@ public class Elu extends Personne {
 	private final Random random;
 
 	/**
-	 * Constructeur par défaut
+	 * Constructeur qui nous permet de construire un élu 
 	 * @param nom nom de l'élu
 	 * @param prenom prénom de l'élu
 	 * @param age âge de l'élu
