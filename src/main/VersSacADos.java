@@ -7,7 +7,6 @@ import sacADos.SacADos;
 import solveurGlouton.ObjetInterface;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class VersSacADos {
     // Nombre de budgets
     final int k;
 
-    public VersSacADos(int[] budgets, List<Projet> projets, Scenario scenario) {
+    VersSacADos(int[] budgets, List<Projet> projets, Scenario scenario) {
         this.n = projets.size();
         this.k = budgets.length;
         this.budgets = budgets;
@@ -39,6 +38,7 @@ public class VersSacADos {
                     this.couts[i] = proj.getCout().toArray();
                     this.benefices[i] = proj.getBenefice();
                 }
+                break;
             case COUTS_PAR_SECTEUR:
                 for (int i=0; i < this.n; i++) {
                     Projet proj = projets.get(i);
@@ -51,6 +51,7 @@ public class VersSacADos {
 
                     this.benefices[i] = proj.getBenefice();
                 }
+                break;
         }
     }
 

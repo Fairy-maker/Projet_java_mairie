@@ -93,7 +93,7 @@ public class HillClimbingSolver {
         for (int index=0; index < solutionInitiale.size(); index++) {
             List<ObjetInterface> voisinCourant = new ArrayList<>(solutionInitiale);
             voisinCourant.remove(index);
-            int[] sommeDesCoutsDeLaSousListe = Utils.sommeDesCouts(voisinCourant);
+            int[] sommeDesCoutsDeLaSousListe = Utils.sommeDesCouts(voisinCourant, sacADos.getBudgets().length);
 
             /*
              Maintenant pour chaque objet qui n'était pas inclu dans solutionInitiale, on ajoute

@@ -71,7 +71,7 @@ public class Main {
 
                 budgets = new int[Secteur.values().length];
                 for (int i=0; i<Secteur.values().length; i++) {
-                    budgets[i] = random.nextInt(1000, 10000);
+                    budgets[i] = random.nextInt(10000, 11000);
                 }
 
                 break;

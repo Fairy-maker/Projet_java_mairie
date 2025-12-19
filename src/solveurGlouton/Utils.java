@@ -125,9 +125,9 @@ public class Utils {
      * @return un tableau "somme" avec la somme de chacun des couts de ma liste d'objets
      * @throws IllegalArgumentException dans le cas où addCoordinates renvoie une erreur
      */
-    public static int[] sommeDesCouts(List<ObjetInterface> objets) throws IllegalArgumentException {
+    public static int[] sommeDesCouts(List<ObjetInterface> objets, int nombreDeCouts) throws IllegalArgumentException {
 
-        int[] somme = new int[objets.getFirst().getCouts().length];
+        int[] somme = new int[nombreDeCouts];
         Arrays.fill(somme, 0);
         for (ObjetInterface obj : objets) {
             somme = Utils.addCoordinates(somme, obj.getCouts());
