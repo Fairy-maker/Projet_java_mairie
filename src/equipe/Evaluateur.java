@@ -40,9 +40,7 @@ public class Evaluateur extends Personne {
 		switch (this.type) {
 		
 		case ECONOMIQUE:
-			// Pour avoir un cout économique entre 5000 et 10000 (on ne veut pas de cout économique
-			// en dessous de 1000 car on se dit que les projets qui concernent les villes sont 
-			// souvent de grands projets qui ont un cout economique assez élevé)
+			
 			p.getCout().setCoutEco(5000 + random.nextInt(10000));
 			break;
 

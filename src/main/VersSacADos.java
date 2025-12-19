@@ -55,7 +55,11 @@ public class VersSacADos {
         }
     }
 
-    public VersSacADos(Path mkpFilePath) throws Exception {
+    public int[][] getCouts() {
+		return couts;
+	}
+
+	public VersSacADos(Path mkpFilePath) throws Exception {
 
         try (BufferedReader br = Files.newBufferedReader(mkpFilePath)) {
 

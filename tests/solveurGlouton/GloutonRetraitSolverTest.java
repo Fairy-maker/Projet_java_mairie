@@ -127,6 +127,5 @@ class GloutonRetraitSolverTest {
 
         assertTrue(utiliteTotale >= 8); // car la solution doit conserver les objets les plus utiles
     }
-
-
+    
 }

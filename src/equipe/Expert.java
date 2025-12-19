@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * Un expert est une personne qui, rattaché à un secteur, a les compétences pour proposer des projets
- * @author feryelbenameur
+ * @author feryel benameur
  * @version 1.0
  */
 public class Expert extends Personne {

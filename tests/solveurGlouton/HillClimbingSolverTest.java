@@ -2,6 +2,7 @@ package solveurGlouton;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -54,7 +55,7 @@ class HillClimbingSolverTest {
 
     }
     /**
-     * Création d'une classe interne sac a dos afin de pouvoir instancier des objets sac a dos
+     * Création d'une classe interne sac a dos afin de pouvoir instancier des objets sac à dos
      */
     class Sac implements SacADosInterface {
         private int[] budgets;
@@ -64,8 +65,8 @@ class HillClimbingSolverTest {
         /**
          * Constructeur qui nous permet de construire un sac à dos 
          * @param budgets le tableaux des budgets
-         * @param dimension dimension du sac a dos 
-         * @param objets la list d'objets dans le sac a dos
+         * @param dimension dimension du sac à dos 
+         * @param objets la list d'objets dans le sac à dos
          */
         Sac(int[] budgets, int dimension, List<ObjetInterface> objets) {
             this.budgets = budgets;
@@ -83,8 +84,8 @@ class HillClimbingSolverTest {
         }
 
         /**
-         * Permet d'accéder au tableaux des budgets du sac a dos 
-         * @return le tableaux des budgets du sac a dos 
+         * Permet d'accéder au tableaux des budgets du sac à dos 
+         * @return le tableaux des budgets du sac à dos 
          */
         @Override
         public int[] getBudgets() {
@@ -93,7 +94,7 @@ class HillClimbingSolverTest {
         
         /**
          * permet d'accéder à la list d'objet du sac à dos 
-         * @return la liste d'objets du sac a dos 
+         * @return la liste d'objets du sac à dos 
          */
         @Override
         public List<ObjetInterface> getObjets() {
@@ -137,7 +138,7 @@ class HillClimbingSolverTest {
             // On vérifie que la solution finale est au moins aussi bonne que l'initiale
             assertTrue(utiliteFinale >= utiliteInitiale);
          
-            // Car le solver ne gère pas les solutions qui est donc un comportement accepté
+          
 
         } 
         //Ici on considère que si on a une exception de levée dans HillClimbing notre test ne doit tout de même pas échouer

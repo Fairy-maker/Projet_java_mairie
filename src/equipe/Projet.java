@@ -40,6 +40,10 @@ public class Projet {
         this.benefice = benefice;
     }
 
+    /**
+     * permet d'accéder au secteur du projet
+     * @return le secteur du projet 
+     */
 
     public Secteur getSecteur() {
         return secteur;
@@ -78,8 +82,10 @@ public class Projet {
 	}
 
 	/**
-	 * permet d'accéder au coût total du projet
-	 * @return le coût total du projet qui est la somme des trois coûts (économique, social, environnemental)
+	 * permet d'accéder au coût total du projet en additionant les coûts évalués pour chaque type de coûts (économique,
+	 * social et environnemental).
+	 * Seuls les coûts positifs sont pris en compte.
+	 * @return le coût total du projet qui est la somme des coûts positifs.
 	 */
 	public int getCoutTotal() {
         int coutTotal = 0;
@@ -99,7 +105,9 @@ public class Projet {
      * <li> une liste de secteur(s), </li>
      * <li> les trois coûts donnés par nos évaluateurs, </li>
      * <li> le coût total </li>
+     * <li> le bénéfice estimé</li>
      * </ul>
+     * Seuls les coûts positifs sont affichés.
      * @return une chaîne de caractères décrivant le projet
      */
 	@Override

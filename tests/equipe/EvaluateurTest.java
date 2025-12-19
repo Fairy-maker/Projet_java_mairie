@@ -2,6 +2,7 @@ package equipe;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+
 import java.util.Random;
 
 import org.junit.jupiter.api.Test;
@@ -29,6 +30,6 @@ class EvaluateurTest {
         
         //Assert
         assertTrue(
-        	    p.getCout().getCoutEco() >= 1000 && p.getCout().getCoutEco() <= 10001 );
+        	    p.getCout().getCoutEco() >= 5000 && p.getCout().getCoutEco() <= 15000 );
     }
 }
