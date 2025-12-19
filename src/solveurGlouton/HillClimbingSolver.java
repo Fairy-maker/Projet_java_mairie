@@ -16,6 +16,13 @@ import java.util.List;
  */
 public class HillClimbingSolver {
 
+    /**
+     * Résoud le problème du sac à dos multidimensionnel via la méthode de Hill Climbing
+     * @param sacADos un sac à dos respectant les contraintes de mon interface SacADosInterface
+     * @param solutionsInitiales liste de solutions initiales, obtenues (par exemple) via un algorithme glouton.
+     * @return La meilleure solution trouvée
+     * @throws Exception Lorsque les différentes tailles des entrées ne sont pas cohérentes.
+     */
     public static List<ObjetInterface> resoudre(SacADosInterface sacADos, List<List<ObjetInterface>> solutionsInitiales) throws Exception {
 
         // On applique la méthode Hill Climbing "classique" pour chaque solution initale

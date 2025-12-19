@@ -26,9 +26,7 @@ public class EquipeMunicipale {
      * Constructeur qui nous permet de créer une nouvelle équipe municipale
      *
      * @param elu             l'élu chargé d'évaluer le bénéfice des projets
-     * @param evaluateurEco   l'évaluateur économique chargé d'évaluer le coût économique du projet
-     * @param evaluateurSocio l'évaluateur social chargé d'évaluer le coût social du projet
-     * @param evaluateurEnv   l'évaluateur environnemental chargé d'évaluer le coût environnemental du projet
+     * @param evaluateurs     l'ensemble des évaluateurs
      * @param experts         la liste d'expert spécialisé dans des secteurs particulier et qui sont chargé de proposer des projets
      */
     public EquipeMunicipale(Elu elu, List<Evaluateur> evaluateurs, List<Expert> experts) {

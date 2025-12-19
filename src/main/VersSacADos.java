@@ -14,8 +14,6 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Convertisseur projet -> sac
- *
  * Transforme une liste de projets en objets pour le sac à dos.
  * Gère aussi la lecture depuis un fichier MKP (format spécifique).
  * Permet de générer un SacADos prêt à être résolu.
@@ -72,6 +70,11 @@ public class VersSacADos {
         }
     }
 
+    /**
+     * Retourne la matrice de couts, où le premier indice détermine
+     * l'objet et le second spécifie le type de cout.
+     * @return la matrice de couts.
+     */
     public int[][] getCouts() {
 		return couts;
 	}

@@ -1,4 +1,5 @@
 package equipe;
+
 /**
  * Représente les trois types de coûts que peuvent évaluer nos évaluateur en fonction de leur spécialisation.
  * Un évaluateur spécialisé en économie va évaluer le coût économique du projet.

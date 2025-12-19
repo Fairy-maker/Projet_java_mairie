@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Utils {
+/**
+ * Classe d'utilitaires pour alléger le code des autres classes.
+ */
+public abstract class Utils {
 
     /**
      * Calcule la somme des éléments de deux tableaux, indice par indice
@@ -122,6 +125,7 @@ public class Utils {
      * Calcule la somme de chacun des couts d'une liste d'objets
      *
      * @param objets liste d'objets qui respectent les contraintes de mon interface ObjetInterface
+     * @param nombreDeCouts taille attendue que le nomre de couts de chaque objet
      * @return un tableau "somme" avec la somme de chacun des couts de ma liste d'objets
      * @throws IllegalArgumentException dans le cas où addCoordinates renvoie une erreur
      */

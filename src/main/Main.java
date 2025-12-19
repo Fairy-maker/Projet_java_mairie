@@ -22,7 +22,12 @@ import solveurGlouton.Utils;
  * grâce à différents types de méthodes (gloutonne à ajout, gloutonne à retrait, Hill Climbing et une variante).
  */
 public class Main {
-    //technique reprises du TP4 + certains prénoms et noms sont inspiré du TP 3 et TP 4
+
+    /**
+     * La méthode d'entrée du projet
+     * @param args Ces arguments ne sont pas utilisés
+     * @throws Exception Exception lorsque les données ont des tailles incohérentes.
+     */
     public static void main(String[] args) throws Exception {
 
         // On demande la graine d'aléa
