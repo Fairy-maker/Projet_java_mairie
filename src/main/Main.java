@@ -16,6 +16,11 @@ import sacADos.SacADos;
 import solveurGlouton.ObjetInterface;
 import solveurGlouton.Utils;
 
+/**
+ * Classe Main intéractive qui permet de résoudre un problème de sac à dos mutidimensionnel
+ * avec des projets proposés par l'équipe municipale (composée d'évaluateurs, d'experts et d'un élu),
+ * grâce à différents types de méthodes (gloutonne à ajout, gloutonne à retrait, Hill Climbing et une variante).
+ */
 public class Main {
     //technique reprises du TP4 + certains prénoms et noms sont inspiré du TP 3 et TP 4
     public static void main(String[] args) throws Exception {
@@ -164,5 +169,6 @@ public class Main {
             return Scenario.COUTS_PAR_SECTEUR;
         }
     }
+    
 
 }

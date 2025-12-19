@@ -13,6 +13,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Convertisseur projet -> sac
+ *
+ * Transforme une liste de projets en objets pour le sac à dos.
+ * Gère aussi la lecture depuis un fichier MKP (format spécifique).
+ * Permet de générer un SacADos prêt à être résolu.
+ */
 public class VersSacADos {
 
     final int[] budgets;
@@ -25,12 +32,20 @@ public class VersSacADos {
     // Nombre de budgets
     final int k;
 
+    /**
+     * Constructeur depuis liste
+     *
+     * @param budgets int[] tableau des budgets par dimension
+     * @param projets List<Projet> liste des projets
+     * @param scenario le scenario choisi par l'utilisateur
+     */
     VersSacADos(int[] budgets, List<Projet> projets, Scenario scenario) {
         this.n = projets.size();
         this.k = budgets.length;
         this.budgets = budgets;
         this.couts = new int[this.n][this.k];
         this.benefices = new int[this.n];
+        // en fonction du scenario choisi on crée nos listes de couts et benefices
         switch (scenario) {
             case COUTS_PAR_TYPES_DE_COUT:
                 for (int i=0; i < this.n; i++) {
@@ -45,6 +60,8 @@ public class VersSacADos {
                     this.couts[i] = new int[budgets.length];
                     Arrays.fill(this.couts[i], 0);
 
+                    // On cherche l'index du secteur de notre objet dans l'énumeration pour
+                    // faire correspondre l'index de son cout
                     Secteur secteurDuProjet = proj.getSecteur();
                     int indexDuSecteur = Arrays.asList(Secteur.values()).indexOf(secteurDuProjet);
                     this.couts[i][indexDuSecteur] = proj.getCout().getCoutEco();
@@ -59,6 +76,12 @@ public class VersSacADos {
 		return couts;
 	}
 
+    /**
+     * Constructeur depuis fichier
+     *
+     * @param mkpFilePath Path chemin du fichier MKP
+     * @throws Exception si le fichier n’est pas conforme
+     */
 	public VersSacADos(Path mkpFilePath) throws Exception {
 
         try (BufferedReader br = Files.newBufferedReader(mkpFilePath)) {
@@ -111,7 +134,13 @@ public class VersSacADos {
         }
 
     }
-
+    /**
+     * Générer SacADos
+     *
+     * Transforme les projets et budgets en objet SacADos.
+     *
+     * @return SacADos prêt à résoudre
+     */
     public SacADos genererSacADos() {
 
         List<ObjetInterface> objets = new ArrayList<>();
