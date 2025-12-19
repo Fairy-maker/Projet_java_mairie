@@ -1,6 +1,7 @@
 package main;
 
 import equipe.Projet;
+import equipe.Secteur;
 import sacADos.Objet;
 import sacADos.SacADos;
 import solveurGlouton.ObjetInterface;
@@ -10,6 +11,7 @@ import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class VersSacADos {
@@ -24,16 +26,31 @@ public class VersSacADos {
     // Nombre de budgets
     final int k;
 
-    public VersSacADos(int[] budgets, List<Projet> projets) {
+    public VersSacADos(int[] budgets, List<Projet> projets, Scenario scenario) {
         this.n = projets.size();
         this.k = budgets.length;
         this.budgets = budgets;
         this.couts = new int[this.n][this.k];
         this.benefices = new int[this.n];
-        for (int i=0; i < this.n; i++) {
-            Projet proj = projets.get(i);
-            this.couts[i] = proj.getCout().toArray();
-            this.benefices[i] = proj.getBenefice();
+        switch (scenario) {
+            case COUTS_PAR_TYPES_DE_COUT:
+                for (int i=0; i < this.n; i++) {
+                    Projet proj = projets.get(i);
+                    this.couts[i] = proj.getCout().toArray();
+                    this.benefices[i] = proj.getBenefice();
+                }
+            case COUTS_PAR_SECTEUR:
+                for (int i=0; i < this.n; i++) {
+                    Projet proj = projets.get(i);
+                    this.couts[i] = new int[budgets.length];
+                    Arrays.fill(this.couts[i], 0);
+
+                    Secteur secteurDuProjet = proj.getSecteur();
+                    int indexDuSecteur = Arrays.asList(Secteur.values()).indexOf(secteurDuProjet);
+                    this.couts[i][indexDuSecteur] = proj.getCout().getCoutEco();
+
+                    this.benefices[i] = proj.getBenefice();
+                }
         }
     }
 

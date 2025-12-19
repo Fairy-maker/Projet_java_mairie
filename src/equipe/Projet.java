@@ -1,11 +1,13 @@
 package equipe;
 
+import java.lang.reflect.Type;
+
 /**
  * Répresente les projets qui sont définit par :
  * <ul>
  * <li> un titre, </li>
  * <li> une description, </li>
- * <li> un ou des secteur(s), </li>
+ * <li> un secteur, </li>
  * <li> un coût, </li>
  * <li> un bénéfice </li>
  * </ul>
@@ -36,6 +38,11 @@ public class Projet {
 	 */
     public void setBenefice(int benefice) {
         this.benefice = benefice;
+    }
+
+
+    public Secteur getSecteur() {
+        return secteur;
     }
 
     /**
@@ -74,8 +81,14 @@ public class Projet {
 	 * permet d'accéder au coût total du projet
 	 * @return le coût total du projet qui est la somme des trois coûts (économique, social, environnemental)
 	 */
-	public double getCoutTotal() {
-	    return cout.getCoutEco() + cout.getCoutSocio() + cout.getCoutEnv();
+	public int getCoutTotal() {
+        int coutTotal = 0;
+        for (int i=0; i < TypeEvaluationCout.values().length; i++) {
+            if (this.cout.toArray()[i] >= 0) {
+                coutTotal += this.cout.toArray()[i];
+            }
+        }
+        return coutTotal;
 	}
 
     /**
@@ -91,10 +104,18 @@ public class Projet {
      */
 	@Override
 	public String toString() {
-	    return  "Projet : " + titre + "\nDescription : " + description + 
-	    		"\nSecteur : " + secteur + 
-	    		"\n  Coûts donnés par nos évaluateurs : " + "\n    -Coût économique : " + cout.getCoutEco() + " € " + "\n    -Coût social : " + cout.getCoutSocio() + " € " + "\n    -Coût environnemental : " + cout.getCoutEnv() + " € " + 
-	    		"\nCoût total :  " + getCoutTotal()+ "\n" ;
+        var s = "Projet : " + titre + "\nDescription : " + description + "\n";
+        s += "Secteur : " + secteur + "\n";
+        s += "Coûts donnés par nos évaluateurs :\n";
+        for (int i=0; i< TypeEvaluationCout.values().length; i++) {
+            TypeEvaluationCout type = TypeEvaluationCout.values()[i];
+            if (cout.toArray()[i] >= 0) {
+                s += "    -Coût " + type.name() + ": " + cout.toArray()[i] + " €\n";
+            }
+        }
+        s += "Coût total : " + getCoutTotal() + " €\n";
+        s += "Bénéfice (utilité) : " + this.benefice + " €\n";
+        return s;
 	}
 
 }

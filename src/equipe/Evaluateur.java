@@ -40,20 +40,20 @@ public class Evaluateur extends Personne {
 		switch (this.type) {
 		
 		case ECONOMIQUE:
-			// Pour avoir un cout économique entre 1000 et 10000 (on ne veut pas de cout économique 
+			// Pour avoir un cout économique entre 5000 et 10000 (on ne veut pas de cout économique
 			// en dessous de 1000 car on se dit que les projets qui concernent les villes sont 
 			// souvent de grands projets qui ont un cout economique assez élevé)
-			p.getCout().setCoutEco(1000 + random.nextInt(10001));
+			p.getCout().setCoutEco(5000 + random.nextInt(10000));
 			break;
 
 		case SOCIAL:
-			// Pour avoir un coût social entre 100 et 1000
-			p.getCout().setCoutSocio(100 + random.nextInt(901)); 
+			// Pour avoir un coût social entre 5000 et 10000
+			p.getCout().setCoutSocio(5000 + random.nextInt(10000));
 			break;
 
 		case ENVIRONNEMENT:
-			// pour avoir un coût environnemental entre 50 et 500
-			p.getCout().setCoutEnv(50 + random.nextInt(451));
+			// pour avoir un coût environnemental entre 5000 et 10000
+			p.getCout().setCoutEnv(5000 + random.nextInt(10000));
 			break;
 			
 		}

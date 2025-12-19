@@ -43,12 +43,15 @@ public class Expert extends Personne {
      * </p>
      * @return le projet p proposé par l'expert
      */
-	public Projet proposerProjet() {
-		Secteur secteurChoisi = secteurs.get(random.nextInt(secteurs.size()));
-		String titre = "un projet dans le secteur " + secteurChoisi; 
-		String description = "Projet dans le secteur " + secteurChoisi; 
-		Projet p = new Projet(titre, description, secteurChoisi); 
-		System.out.println("L'expert "+ getPrenom()+ " " + getNom()+ " propose " + p.getTitre());
-		return p; //renvoie le projet
+	public List<Projet> proposerProjets() {
+        List<Projet> projets = new ArrayList<>();
+        for (Secteur secteur: this.secteurs) {
+            String titre = "un projet dans le secteur " + secteur;
+            String description = "Projet dans le secteur " + secteur;
+            Projet p = new Projet(titre, description, secteur);
+            System.out.println("L'expert "+ getPrenom()+ " " + getNom()+ " propose " + p.getTitre());
+            projets.add(p);
+        }
+        return projets;
 	}
 }

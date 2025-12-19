@@ -11,5 +11,4 @@ public enum Secteur {
 	EDUCATION,
 	CULTURE,
     ATTRACTIVITE_ECONOMIQUE,
-    ECOLOGIE;
 }
