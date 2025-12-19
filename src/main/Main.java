@@ -25,7 +25,11 @@ public class Main {
     //technique reprises du TP4 + certains prénoms et noms sont inspiré du TP 3 et TP 4
     public static void main(String[] args) throws Exception {
 
-        Random random = new Random(0);
+        // On demande la graine d'aléa
+
+        int aleaChoisi = DemanderAlea();
+
+        Random random = new Random(aleaChoisi);
 
         // technique inspiré de la playlist youtube de Jiraws
         // Création de l'équipe municipale
@@ -169,6 +173,24 @@ public class Main {
             return Scenario.COUTS_PAR_SECTEUR;
         }
     }
-    
+
+    private static int DemanderAlea(){
+        int nombre = 0;
+        boolean nombreValide = false;
+        while (!nombreValide){
+            System.out.println("Entrez la graine d'aléa pour votre test (un entier positif ou nul) : ");
+            Scanner scan = new Scanner(System.in);
+            try {
+                nombre = scan.nextInt();
+                nombreValide = true;
+            } catch (Exception e) {
+                continue;
+            }
+
+        }
+        return nombre;
+    }
+
+
 
 }
