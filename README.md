@@ -42,6 +42,7 @@ projet_java_mairie
 ## Installation 
 ### Cloner le repo
  `git clone <repo-url>`
+ 
  `cd projet_java_mairie`
 
 ## Lancement du projet 
