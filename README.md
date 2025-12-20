@@ -47,7 +47,7 @@ projet_java_mairie
 
 ## Lancement du projet 
  ### Application Java (classe main)
- Exécuter la classe main via :
+ Pour exécuter la classe main vous pouvez soit :
  - clic droit sur projet_java_mairie > Run As > Java Application > main > Ok
  - bouton Run
    ### Utilisation via la console
