@@ -23,7 +23,7 @@ class VersSacADosTest {
 	void testCoutParTypeDeCout() {
 		
 		//Arrange
-	    Projet p = new Projet("Projet_Test", "on test un projet", Secteur.CULTURE);
+	    Projet p = new Projet("Projet Culturel", "Un projet culturel", Secteur.CULTURE);
 
 	    p.getCout().setCoutEco(5);
 	    p.getCout().setCoutSocio(2);
