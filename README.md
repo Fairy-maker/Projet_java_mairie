@@ -60,4 +60,5 @@ projet_java_mairie
   - clic droit sur projet_java_mairie > Run As > JUnit test
   - cliquer sur chaque JUnit puis Run
 
+
 **Auteur :** BAIGNERES Clara, BENAMEUR Féryel, BOUCHERON Lucie 
