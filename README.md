@@ -23,7 +23,7 @@ projet_java_mairie
 │ │ ├── GloutonRetraitSolveur.java
 │ │ ├── HillClimbingSolveur.java
 │ │ └── ...
-└── test/
+└── tests/
 ├── equipe/
 │ │ ├── EluTest.java
 │ │ └── EvaluateurTest.java
@@ -32,7 +32,7 @@ projet_java_mairie
 ├── solveurGlouton/
 │ │ ├── GloutonRetraitSolverTest.java
 │ │ └── HillClimbingSolverTest.java
-└── test/resources
+└── tests/resources
 │ └── ...
 ```
 
