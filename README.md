@@ -61,8 +61,8 @@ projet_java_mairie
       `javac -d bin $(find src -name "*.java")`
     - Compiler chaque classe une par une en faisant :
       `javac src/nompackage/NomClasse.java`
-    
-Attention cette deuxième méthode de compilation nécessite que toutes les autres classes soient compiler avant de compiler la classe main. Une erreur de compilation apparaitra sinon.
+      
+     Attention cette deuxième méthode de compilation nécessite que toutes les autres classes soient compiler avant de compiler la classe main. Une erreur de compilation apparaitra sinon.
     #### Executer le projet :
     - Pour exécuter une classe vous devez vous placer sur le bon dossier et entrer :
       `java nomdupackage.NomDeMaClasse`
