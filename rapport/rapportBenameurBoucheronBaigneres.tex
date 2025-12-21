@@ -18,7 +18,7 @@
     {0.5em}
     {}
 
-\title{Rapport du projet de Java : Gestion des budgets d'une bville}
+\title{Rapport du projet de Java : Gestion des budgets d'une ville}
 \date{}
 \author{Feryel BENAMEUR, Lucie BOUCHERON, Clara BAIGNERES}
 
@@ -50,6 +50,7 @@ Notre code se découpe en quatre parties qui peuvent être décrites comme suit 
 	\item Le package équipe : simulation d’une équipe municipale et simulation de projet
 	\item Le package sacADos : implémentation d'un sac à dos multidimensionnel et d'objets
 	\item Le package solveurGlouton : génère des solutions gloutonnes 
+	\item Le package main : permet d'executer une résolution de problème de sac à dos multidimensionnel de manière interactive. 
 \end{enumerate}
 
 \section{Le package equipe }
@@ -72,7 +73,7 @@ Cette méthode crée un projet par secteur rattaché à un élu (avec un titre e
 Cette méthode affiche ensuite dans la console le projet proposé. Elle renvoie une liste de tous les projets proposés par l'expert. 
 
 \subsection{La classe Evaluateur}
-Cette classe fille héritée de la classe Personne a pour objectif de créer nos évaluateur qui, rattachés à un type d’évaluation du coût, ont les compétences pour déterminer le coût d’un projet.
+Cette classe fille héritée de la classe Personne a pour objectif de créer nos évaluateurs qui, rattachés à un type d’évaluation du coût, ont les compétences pour déterminer le coût d’un projet.
 
 \subsubsection{La méthode évaluerCoutProjet}
 Cette méthode attribue un coût  au projet en fonction du type de l’évaluateur : 
@@ -160,7 +161,7 @@ Cette interface précise qu’un objet dans un sac à dos doit contenir une mét
 Cette interface précise qu’un sac à dos possède une méthode qui renvoie sa dimension (getDimension()), les budgets  (getBudgets()) et une liste d’objets issus de mon autre interface ObjetDansSacADos (getObjets()). 
 \\
 
-SacADosInterface et un ObjetInterface sont implémentées dans le package sacADos.
+SacADosInterface et ObjetInterface sont implémentées dans le package sacADos.
 
 \subsection{GloutonAjoutSolver}
 Cette classe implémente la résolution du problème de sac à dos multidimensionnel grâce à la méthode gloutonne “par  ajout”. 
@@ -209,13 +210,13 @@ Cette méthode prend en paramètre une liste d’objets et crée une liste “co
 Cette classe servira de comparateur pour notre classe GloutonRetraitSolver.
 
 \subsubsection{TriParUtiliteSurCout}
-Cette méthode calcule la somme des coûts indice par indice auxquels on retranche les budgets associés. Elle va ensuite chercher les indices où on retrouve la valeur maximale de ces résultats. Cela nous permet de paramétrer notre variable indcesMaxValue 
+Cette méthode calcule la somme des coûts indice par indice auxquels on retranche les budgets associés. Elle va ensuite chercher les indices où on retrouve la valeur maximale de ces résultats. Cela nous permet de paramétrer notre variable indicesMaxValue.
 
 \subsubsection{maxDesCouts}
 Cherche le maximum courant parmi les coûts d’un objet. Il renvoie le coût maximal. 
 
 \subsubsection{interet}
-Permet enfin de calculer l'intérêt d’un objet selon la formule de l’énoncé : AJOUTER FORMULE EN LATEX (grâce aux deux méthodes definies précédemment). Elle renvoie le résultat de l'intérêt de l’objet
+Permet enfin de calculer l'intérêt d’un objet selon la formule de l’énoncé (grâce aux deux méthodes definies précédemment). Elle renvoie le résultat de l'intérêt de l’objet.
 
 \subsubsection{compare}
 Permet de comparer les intérêts de deux objets et de les ordonner du moins au plus intéressant.
@@ -340,7 +341,7 @@ Un deuxième comportement attendu a été construit. En effet, nous avons consid
 
 \section{Utilisation de l'IA}
 
-Il est important de noter que chaque réponse donnée par l’IA a été résumée ici. Nous avons résumé les points donnés par l’IA qui nous semblait important de mentionner et qui nous ont été utiles dans la procédure de notre projet. Une version non résumé à l’essentiel nous aurait amené à faire des screens très importants pour des affirmations portés par l’IA qui nous étaient d’aucunes utilités.
+Il est important de noter que chaque réponse donnée par l’IA a été résumée ici. Nous avons résumé les points donnés par l’IA qui nous semblaient importants de mentionner et qui nous ont été utiles dans la procédure de notre projet. Une version non résumé à l’essentiel nous aurait amené à faire des captures d'écran très importantes pour des affirmations portées par l’IA qui ne nous étaient d’aucunes utilités.
 \\
 
 
@@ -350,7 +351,7 @@ Il est important de noter que chaque réponse donnée par l’IA a été résum�
 
 Ensuite, quand tu appelles evaluer(projet), l’évaluateur met à jour uniquement son type de coût.   
 
- =$>$ PS : j’avais déjà créer l’enumeratio grace a une video youtube !
+ =$>$ PS : j’avais déjà créé l’énumeration grace à une video youtube !
 \\
 
 \textbf{Prompt 2} : explique-moi simplement comment savoir quel type d’assert doit- on utiliser dans notre JUnit ?
@@ -371,7 +372,7 @@ Ensuite, quand tu appelles evaluer(projet), l’évaluateur met à jour uniqueme
 \end{figure}
 
 
-\textbf{Critique} : J’avais déjà instancier les objets et mon sac à dos avec mes objets. j’ai cependant gardé la suite de ce qu’il me donnait dans ce code et l'ai reformulé pour qu’il soit approprié avec ce que j’avais. De plus, il écrivait total Poids au lieu de coutTotal etc.. Donc de nombreuses modifications au niveau syntaxique ont dû être appliquées afin de concorder avec ce qu’on avait. 
+\textbf{Critique} : J’avais déjà instancié les objets et mon sac à dos avec mes objets. j’ai cependant gardé la suite de ce qu’il me donnait dans ce code et l'ai reformulé pour qu’il soit approprié avec ce que j’avais. De plus, il écrivait total Poids au lieu de coutTotal etc.. Donc de nombreuses modifications au niveau syntaxique ont dû être appliquées afin de concorder avec ce qu’on avait. 
 \\
 
 \textbf{Prompt 4} : Voici le code pour HillClimbingSolveur. J’ai créé mes objets ainsi que mon sac à dos mais je ne comprends pas comment je peux appliquer le solveur sur ce que j’ai. 
@@ -382,20 +383,25 @@ Ensuite, quand tu appelles evaluer(projet), l’évaluateur met à jour uniqueme
 \includegraphics[width=0.6\textwidth]{reponsePrompt4}
 \end{figure}
 
-\textbf{Critique} : Tout comme le test pour GloutonRetraitSolveur, j’ai gardé ce qu’il m’avais donné et l’ai un peu adapté en fonction de ce qu’on avait déjà.
+\textbf{Critique} : Tout comme le test pour GloutonRetraitSolveur, j’ai gardé ce qu’il m’avait donné et l’ai un peu adapté en fonction de ce qu’on avait déjà.
 \\
 
 \textbf{Prompt 5} : Je ne comprends pas comment faire mon JUnit pour qu’il verifie qu’on a bien changé le coût économique du secteur à son index déterminé. Par exemple, si santé est à l’index 1, comment faire pour qu’il change la valeur de cet index avec le cout économique de ce secteur (pour le JUnit de VersSAcADos).
 
+\textbf{Réponse} : 
 
-\textbf{Réponse} : Il me dit qu’il faut utiliser la méthode “.ordinal” pour vérifier le comportement attendus.
+\begin{figure}[h]
+    \centering
+\includegraphics[width=0.6\textwidth]{reponsePromt5}
+\end{figure}
+
 
 \textbf{Critique} : J’ai réutilisé ce qu’il m'a donné en le modifiant avec ce que j’avais. Par exemple, j’ai créé mon projet en fonction du constructeur de la classe projet. Ce code m’a été pratique car j’ai pu l’utiliser pour tester les deux scénarios  en ne changeant presque rien si ce n’est
 “Scenario.COUTS\_PAR\_SECTEUR”.
 
 \textbf{Prompt 6 :} How to read of file of "Benchmark instances for the Multidimensional Knapsack Problem" in JAva
 
-textbf{Réponse} : voici un lien vers \href{https://chat.mistral.ai/chat/92226b30-88fe-4807-8545-dee874162ad7}{la réponse}.
+\textbf{Réponse} : voici un lien vers la réponse \href{https://chat.mistral.ai/chat/92226b30-88fe-4807-8545-dee874162ad7}{https://chat.mistral.ai/chat/92226b30-88fe-4807-8545-dee874162ad7}.
 
 \textbf{Critique} : Mistral s’est trompé dans la lecture du fichier. Il me dit que la seconde ligne correspond aux capacités (donc les coûts) de mon premier objets et que les deux dernières lignes sont l’utilité et les budgets. Or le document se découpe comme tel : 
 \begin{itemize}
@@ -426,6 +432,11 @@ C'était beaucoup d'allers-retours entre chacun de nos packages et de nos travau
 
 
 \subsection{Pour Lucie}
+La partie qui m’a posé le plus de difficulté a été la classe VersSacADos. Il a fallu réussir à transformer des projets municipaux en données exploitables par le sac à dos (tableau de coûts, de budgets et de bénéfices). 
+
+De plus, cette transformation était aussi dépendante du scénario choisi, ce qui oblige à faire attention aux indices des tableaux et à faire correspondre les énumérations et les dimensions du sac (puisque selon le scénario, les coûts d’un projet ne sont pas répartis de la même manière). 
+
+
 
 
 
@@ -435,7 +446,7 @@ C'était beaucoup d'allers-retours entre chacun de nos packages et de nos travau
 	\item Toutes la playlist de vidéo Youtube qui suit celle ci (celle ci comprise) : \href{https://youtu.be/VqKZ0tRwUIc?si=KeZxsjvqFKFwB6U-}{liste de vidéos}
 	\item \href{https://www.jmdoudoux.fr/java/dej/chap-collections.htm}{https:/www.jmdoudoux.fr/java/dej/chap-collections.htm}
 	\item \href{https://openclassrooms.com/forum/sujet/import-classe-java-98358}{https://openclassrooms.com/forum/sujet/import-classe-java-98358}
-	\item TP3, TP4 et TP6 du cours de Java Objet de cette année
+	\item Tous les TPs de Java Objet de cette année
 	\item \href{https://perso.telecom-paristech.fr/hudry/coursJava/tableaux/tableauD.html}{https://perso.telecom-paristech.fr/hudry/coursJava/tableaux/tableauD.html}
 	\item \href{https://www.data-transitionnumerique.com/scanner-java/}{https://www.data-transitionnumerique.com/scanner-java/}
 	\item \href{https://perso.telecom-paristech.fr/hudry/coursJava/avance/dupliquer.html}{https://perso.telecom-paristech.fr/hudry/coursJava/avance/dupliquer.html}
@@ -445,22 +456,29 @@ C'était beaucoup d'allers-retours entre chacun de nos packages et de nos travau
 	
 De plus, le père de Clara nous a aidé à mettre en place une bonne architecture pour le projet et à comprendre certains problèmes de code : indentation, modificateurs d'accès, modificateurs de classe et utilisation d'interfaces, notamment sur glouton pour pouvoir coder parallèlement notre package gloutonSolveur et sacADos.
 
+\section{Lien ver le GitHub}
+Voici le lien pour accéder à notre GitHub : \href{https://github.com/Fairy-maker/Projet_java_mairie.git}{https://github.com/Fairy-maker/Projet\_java\_mairie.git}
+
+
+
 \section{Annexe (modèle UML)}
 
 \begin{figure}[h]
     \centering
-\includegraphics[width=0.7\textwidth]{modeleULM1}
+\includegraphics[width=0.6\textwidth]{modeleULM1}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-\includegraphics[width=0.7\textwidth]{modeleULM2}
+\includegraphics[width=0.6\textwidth]{modeleULM2}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-\includegraphics[width=0.7\textwidth]{modeleULM3}
+\includegraphics[width=0.6\textwidth]{modeleULM3}
 \end{figure}
+
+
 
 
 
