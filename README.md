@@ -65,9 +65,14 @@ projet_java_mairie
      Attention cette deuxième méthode de compilation nécessite que toutes les autres classes soient compilées avant de compiler la classe main. Une erreur de compilation apparaitra sinon.
     #### Executer le projet :
     - Pour exécuter une classe vous devez vous placer sur le bon dossier et entrer :
+      
       `java nomdupackage.NomDeMaClasse`
     - Pour exécuter le projet via la classe main vous devez écrire :
-      `java -cp bin main.Main` ou encore si vous êtes bien dans le bon dossier
+      
+      `java -cp bin main.Main`
+
+      ou encore si vous êtes bien dans le bon dossier : 
+      
       `java main.Main`.
       
    ### Utilisation via la console
